@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #eee9df;
+  --foreground: #1a1612;
+
+  --bg: #eee9df;
+  --bg-alt: #e4ddcd;
+  --ink: #1a1612;
+  --ink-soft: #4a3f33;
+  --muted: #8a7e72;
+  --line: #d6cdbb;
+  --paper: #faf6ec;
+  --accent: #6b3410;
+  --accent-2: #c75a2a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-logo: var(--font-archivo-black);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll-x 35s linear infinite;
+}
