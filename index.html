@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Urbano Café — Café de especialidad en Paraguay</title>
+  <meta name="description" content="Urbano Café tuesta granos de origen único en Asunción. Café de especialidad, suscripciones, métodos y nuestras cafeterías." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Promo bar -->
+  <div class="promo-bar">
+    <div class="promo-track">
+      <span>Envío gratis en pedidos sobre Gs. 250.000 &nbsp;·&nbsp;</span>
+      <span>Tostado cada semana en Asunción &nbsp;·&nbsp;</span>
+      <span>Nueva cosecha: Brasil Cerrado 2026 &nbsp;·&nbsp;</span>
+      <span>Suscribite y ahorrá un 15% &nbsp;·&nbsp;</span>
+      <span>Envío gratis en pedidos sobre Gs. 250.000 &nbsp;·&nbsp;</span>
+      <span>Tostado cada semana en Asunción &nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#cafe" data-mega="cafe">Café</a></li>
+          <li><a href="#metodos" data-mega="metodos">Métodos</a></li>
+          <li><a href="#suscripcion">Suscripción</a></li>
+          <li><a href="#locales">Locales</a></li>
+          <li><a href="#historia">Historia</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="brand" aria-label="Urbano Café">
+        <span class="brand-mark">URBANO</span>
+        <span class="brand-sub">café · paraguay</span>
+      </a>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cuenta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" aria-label="Carrito">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 7h12l-1.2 12.1a2 2 0 0 1-2 1.9H9.2a2 2 0 0 1-2-1.9L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <ul>
+        <li><a href="#cafe">Café</a></li>
+        <li><a href="#metodos">Métodos</a></li>
+        <li><a href="#suscripcion">Suscripción</a></li>
+        <li><a href="#locales">Locales</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#academia">Academia</a></li>
+        <li><a href="#mayorista">Mayorista</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-media">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1800&q=80">
+          <source src="https://cdn.coverr.co/videos/coverr-pouring-a-coffee-7717/1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Edición limitada · Cosecha 2026</p>
+        <h1 class="hero-title">
+          <span>Brasil</span>
+          <span class="hero-italic">Cerrado Mineiro</span>
+        </h1>
+        <p class="hero-tasting">Cacao &nbsp;·&nbsp; Caramelo &nbsp;·&nbsp; Naranja madura</p>
+        <p class="hero-desc">Un lote natural cultivado a 1.180 m. s. n. m., fermentado 96 horas en cereza. Cuerpo aterciopelado y dulzura larga.</p>
+        <div class="hero-actions">
+          <a href="#tienda" class="btn btn-light">Conocer este café</a>
+          <a href="#historia" class="btn btn-ghost">Ver el productor</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll">SCROLL ↓</div>
+    </section>
+
+    <!-- TICKER -->
+    <section class="ticker">
+      <div class="ticker-track">
+        <span>★ Café de especialidad</span>
+        <span>★ Tostado en Asunción</span>
+        <span>★ Granos trazables</span>
+        <span>★ Pequeños productores</span>
+        <span>★ Servido en taza desde 2019</span>
+        <span>★ Café de especialidad</span>
+        <span>★ Tostado en Asunción</span>
+        <span>★ Granos trazables</span>
+        <span>★ Pequeños productores</span>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section featured" id="cafe">
+      <div class="section-head">
+        <p class="eyebrow dark">Lo más pedido esta semana</p>
+        <h2 class="section-title">Nuestros granos</h2>
+        <a href="#tienda" class="link-arrow">Ver toda la tienda <span>→</span></a>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="product">
+          <a class="product-media" href="#">
+            <img src="https://images.unsplash.com/photo-1559525839-d9acfd3919c4?w=900&q=80" alt="Bolsa de café Brasil Cerrado" />
+            <span class="product-tag">Nuevo</span>
+          </a>
+          <div class="product-info">
+            <p class="product-origin">Brasil · Minas Gerais</p>
+            <h3>Cerrado Mineiro</h3>
+            <p class="product-notes">Cacao · Caramelo · Naranja</p>
+            <p class="product-price">Gs. 95.000<span> / 250 g</span></p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a class="product-media" href="#">
+            <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=900&q=80" alt="Bolsa de café Colombia Huila" />
+          </a>
+          <div class="product-info">
+            <p class="product-origin">Colombia · Huila</p>
+            <h3>San Agustín Lavado</h3>
+            <p class="product-notes">Panela · Manzana roja · Almendra</p>
+            <p class="product-price">Gs. 110.000<span> / 250 g</span></p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a class="product-media" href="#">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=900&q=80" alt="Bolsa de café Etiopía Yirgacheffe" />
+            <span class="product-tag dark">Edición</span>
+          </a>
+          <div class="product-info">
+            <p class="product-origin">Etiopía · Yirgacheffe</p>
+            <h3>Konga Natural</h3>
+            <p class="product-notes">Frutilla · Jazmín · Durazno</p>
+            <p class="product-price">Gs. 145.000<span> / 250 g</span></p>
+          </div>
+        </article>
+
+        <article class="product">
+          <a class="product-media" href="#">
+            <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=900&q=80" alt="Blend casa" />
+          </a>
+          <div class="product-info">
+            <p class="product-origin">Blend · Casa</p>
+            <h3>Asunción Blend</h3>
+            <p class="product-notes">Chocolate · Maní · Miel</p>
+            <p class="product-price">Gs. 85.000<span> / 250 g</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ORIGIN SHOWCASE — alternating editorial blocks -->
+    <section class="origin">
+      <div class="origin-block">
+        <div class="origin-media">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1400&q=80" alt="Finca de café en Brasil" />
+        </div>
+        <div class="origin-text">
+          <p class="region-label">B&nbsp;R&nbsp;A&nbsp;S&nbsp;I&nbsp;L</p>
+          <h2>Cerrado Mineiro,<br/><em>una planicie alta</em></h2>
+          <p>Trabajamos directo con la familia Pereira en Patrocínio. Sus parcelas a más de 1.100 m, suelos volcánicos y secado lento al sol producen una taza redonda, dulce y con cuerpo notable. Compramos toda la cosecha 2026.</p>
+          <a href="#" class="link-arrow dark">Explorar el origen <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="origin-block reverse">
+        <div class="origin-media">
+          <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1400&q=80" alt="Productora colombiana" />
+        </div>
+        <div class="origin-text">
+          <p class="region-label">C&nbsp;O&nbsp;L&nbsp;O&nbsp;M&nbsp;B&nbsp;I&nbsp;A</p>
+          <h2>Huila,<br/><em>cordillera y frescura</em></h2>
+          <p>San Agustín nos enseñó la paciencia del lavado. Don Edilberto fermenta 36 horas en tanques cerrados y seca en parabólico. El resultado: una taza limpia, viva y con final a manzana roja.</p>
+          <a href="#" class="link-arrow dark">Explorar el origen <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="origin-block">
+        <div class="origin-media">
+          <img src="https://images.unsplash.com/photo-1559056961-84ee08e1d7d8?w=1400&q=80" alt="Granos de Etiopía" />
+        </div>
+        <div class="origin-text">
+          <p class="region-label">E&nbsp;T&nbsp;I&nbsp;O&nbsp;P&nbsp;Í&nbsp;A</p>
+          <h2>Yirgacheffe,<br/><em>la cuna del café</em></h2>
+          <p>Konga es una estación que reúne a más de 600 productores pequeños. El proceso natural en cama africana resalta una taza floral, vibrante, con cuerpo de jugo y un final perfumado a jazmín.</p>
+          <a href="#" class="link-arrow dark">Explorar el origen <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section class="subscribe" id="suscripcion">
+      <div class="subscribe-inner">
+        <div class="subscribe-text">
+          <p class="eyebrow">Suscripción Urbano</p>
+          <h2>El mejor café del mes,<br/><em>en la puerta de tu casa.</em></h2>
+          <p>Cada cuatro semanas tostamos y enviamos un café cuidadosamente elegido por nuestro equipo. Pausá, cambiá o cancelá cuando quieras.</p>
+          <ul class="subscribe-list">
+            <li>· Granos tostados el día del envío</li>
+            <li>· Curado por nuestro Q-Grader</li>
+            <li>· 15 % de descuento sobre tienda</li>
+            <li>· Envío gratis en Asunción y Gran Asunción</li>
+          </ul>
+          <a href="#" class="btn btn-dark">Empezar la suscripción</a>
+        </div>
+        <div class="subscribe-media">
+          <img src="https://images.unsplash.com/photo-1572119865084-43c285814d63?w=1200&q=80" alt="Bolsa de café Urbano" />
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODS -->
+    <section class="section methods" id="metodos">
+      <div class="section-head center">
+        <p class="eyebrow dark">Aprender a preparar</p>
+        <h2 class="section-title">Métodos</h2>
+        <p class="section-lead">Guías paso a paso para preparar el café en casa como en la barra.</p>
+      </div>
+
+      <div class="grid grid-3 methods-grid">
+        <a class="method" href="#">
+          <div class="method-media">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&q=80" alt="V60" />
+          </div>
+          <h3>V60</h3>
+          <p>Una taza limpia y aromática en cuatro minutos.</p>
+        </a>
+        <a class="method" href="#">
+          <div class="method-media">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80" alt="Espresso" />
+          </div>
+          <h3>Espresso</h3>
+          <p>Receta, presión y rutina para tu máquina en casa.</p>
+        </a>
+        <a class="method" href="#">
+          <div class="method-media">
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=80" alt="Prensa francesa" />
+          </div>
+          <h3>Prensa francesa</h3>
+          <p>Cuerpo, simpleza y ritual de la mañana.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- PRODUCER SPOTLIGHT -->
+    <section class="spotlight" id="historia">
+      <div class="spotlight-media">
+        <img src="https://images.unsplash.com/photo-1545262810-77515befe149?w=1600&q=80" alt="Productor en finca" />
+      </div>
+      <div class="spotlight-text">
+        <p class="eyebrow">Productor en foco</p>
+        <h2>Don Juliano<br/><em>y la fermentación lenta</em></h2>
+        <p>Hace tres años Don Juliano dejó el secado convencional y empezó a fermentar la cereza por 96 horas en tanques anaeróbicos. La primera vez que probamos su microlote en mesa de cata, lo compramos entero. Esta es la quinta cosecha que recibimos.</p>
+        <a href="#" class="link-arrow">Leer la historia completa <span>→</span></a>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section class="section locations" id="locales">
+      <div class="section-head">
+        <p class="eyebrow dark">Visitanos</p>
+        <h2 class="section-title">Nuestros locales</h2>
+        <a href="#" class="link-arrow">Ver todos <span>→</span></a>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="location">
+          <div class="location-media">
+            <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1000&q=80" alt="Local Villa Morra" />
+          </div>
+          <h3>Villa Morra</h3>
+          <p>Senador Long c/ Lillo<br/>Asunción</p>
+          <p class="hours">Lun a Dom · 7:00 — 21:00</p>
+        </article>
+        <article class="location">
+          <div class="location-media">
+            <img src="https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?w=1000&q=80" alt="Local Centro" />
+          </div>
+          <h3>Centro Histórico</h3>
+          <p>Palma e/ Chile<br/>Asunción</p>
+          <p class="hours">Lun a Sáb · 7:30 — 19:00</p>
+        </article>
+        <article class="location">
+          <div class="location-media">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1000&q=80" alt="Local Las Mercedes" />
+          </div>
+          <h3>Las Mercedes</h3>
+          <p>Avda. España c/ Brasilia<br/>Asunción</p>
+          <p class="hours">Lun a Dom · 7:00 — 22:00</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section class="press">
+      <p class="press-eyebrow">Hablan de nosotros</p>
+      <div class="press-marquee">
+        <div class="press-track">
+          <span>ABC Color</span><span>·</span>
+          <span>Última Hora</span><span>·</span>
+          <span>La Nación</span><span>·</span>
+          <span>Forbes Paraguay</span><span>·</span>
+          <span>Revista PLUS</span><span>·</span>
+          <span>5 días</span><span>·</span>
+          <span>ABC Color</span><span>·</span>
+          <span>Última Hora</span><span>·</span>
+          <span>La Nación</span><span>·</span>
+          <span>Forbes Paraguay</span><span>·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / CTA -->
+    <section class="newsletter">
+      <div class="newsletter-inner">
+        <h2>Sumate a nuestra<br/><em>lista de tostado.</em></h2>
+        <p>Avisos de nuevos lotes, cosechas limitadas y eventos en nuestros locales.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Gracias ✓';">
+          <input type="email" required placeholder="tu@correo.com" aria-label="Correo electrónico" />
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-mark big">URBANO</div>
+        <p>Café de especialidad,<br/>tostado en Asunción.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/urbanocafepy" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Granos</a></li>
+          <li><a href="#">Suscripción</a></li>
+          <li><a href="#">Equipos</a></li>
+          <li><a href="#">Tarjetas regalo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Sobre nosotros</h4>
+        <ul>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Locales</a></li>
+          <li><a href="#">Academia</a></li>
+          <li><a href="#">Trabajá con nosotros</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Mayorista</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Urbano Café · Asunción, Paraguay</span>
+      <span>Hecho con cuidado, tostado con paciencia.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
