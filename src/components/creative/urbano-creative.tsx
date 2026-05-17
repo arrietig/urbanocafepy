@@ -177,25 +177,14 @@ export function Beans() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-20">
           <div>
             <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
-              La carta de la semana
+              Café hecho con amor desde el 2021
             </p>
             <h2 className="font-display uppercase text-[clamp(2.5rem,9vw,8rem)] leading-[0.85] text-cream">
-              Nuestros
+              Nuestras
               <br />
-              <span className="text-stroke">granos</span>
+              <span className="text-stroke">delicias</span>
             </h2>
           </div>
-          <a
-            href="#"
-            className="group inline-flex items-center gap-3 text-[12px] tracking-[0.2em] uppercase text-cream-soft hover:text-cream transition-colors cursor-pointer"
-          >
-            Ver toda la tienda
-            <span className="grid place-items-center w-10 h-10 rounded-full border border-line group-hover:border-copper group-hover:bg-copper group-hover:text-espresso transition-colors">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                <path d="M7 17 17 7M17 7H8M17 7v9" />
-              </svg>
-            </span>
-          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 md:auto-rows-fr">
