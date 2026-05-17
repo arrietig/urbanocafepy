@@ -9,7 +9,6 @@ import {
   Origins,
   Manifesto,
   Subscribe,
-  Locations,
 } from '@/components/creative/urbano-creative';
 
 export default function Home() {
@@ -27,7 +26,6 @@ export default function Home() {
         <Origins />
         <Manifesto />
         <Subscribe />
-        <Locations />
       </main>
       <SiteFooter />
     </div>
