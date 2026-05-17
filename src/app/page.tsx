@@ -6,6 +6,7 @@ import { Hero } from '@/components/creative/hero';
 import {
   Ritual,
   Beans,
+  Catering,
   Origins,
   Manifesto,
   Subscribe,
@@ -22,6 +23,7 @@ export default function Home() {
       <main>
         <Hero />
         <Beans />
+        <Catering />
         <Ritual />
         <Origins />
         <Manifesto />
