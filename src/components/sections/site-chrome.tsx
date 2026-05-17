@@ -51,9 +51,9 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto max-w-[1500px] grid grid-cols-[1fr_auto_1fr] items-center gap-6 px-5 md:px-12 py-4">
-          <nav className="justify-self-start hidden md:block">
+          <nav className="justify-self-end hidden md:block">
             <ul className="flex gap-8">
-              {NAV.map(([label, href]) => (
+              {NAV.slice(0, 2).map(([label, href]) => (
                 <li key={href}>
                   <a
                     href={href}
@@ -92,17 +92,22 @@ export function SiteHeader() {
             />
           </a>
 
-          <div className="justify-self-end flex items-center gap-3">
-            <button
-              aria-label="Buscar"
-              className="w-10 h-10 hidden sm:inline-flex items-center justify-center rounded-full text-cream-soft hover:text-cream hover:bg-cream/5 transition-colors cursor-pointer"
-            >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-            </button>
-          </div>
+          <nav className="justify-self-start hidden md:block">
+            <ul className="flex gap-8">
+              {NAV.slice(2).map(([label, href]) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    className="text-[12px] tracking-[0.18em] uppercase text-cream-soft hover:text-cream relative inline-block py-1 transition-colors cursor-pointer after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px after:bg-copper after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <span className="md:hidden w-10" aria-hidden />
         </div>
       </header>
 
