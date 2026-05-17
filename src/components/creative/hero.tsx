@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
-const WORD = 'URBANO'.split('');
-
 const SLIDES = [
   { src: '/portada/Poratada-01.jpg', alt: 'Portada Urbano Café 01' },
   { src: '/portada/Portada-02.jpg',  alt: 'Portada Urbano Café 02' },
@@ -71,37 +69,23 @@ export function Hero() {
         style={{ y: titleY, opacity: fade }}
         className="relative z-10 min-h-[100svh] mx-auto max-w-[1500px] px-5 md:px-12 flex flex-col justify-center pt-[12vh] pb-[14vh]"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-[11px] md:text-[13px] tracking-[0.42em] uppercase text-copper mb-5"
-        >
-          Café de especialidad · Asunción · desde 2019
-        </motion.p>
-
-        <h1 className="font-display uppercase leading-[0.82] tracking-[-0.01em] text-cream">
+        <h1>
           <span className="sr-only">Urbano Café</span>
-          <span aria-hidden className="flex flex-wrap text-[clamp(4rem,19vw,17rem)]">
-            {WORD.map((c, i) => (
-              <motion.span
-                key={i}
-                initial={{ y: '110%', opacity: 0 }}
-                animate={{ y: '0%', opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.35 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-block"
-              >
-                {c}
-              </motion.span>
-            ))}
-          </span>
           <motion.span
+            aria-hidden
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.95 }}
-            className="block font-serif italic font-normal normal-case text-copper text-[clamp(1.6rem,6vw,5rem)] mt-1 md:-mt-[2vw]"
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="block"
           >
-            café tostado con fuego lento
+            <Image
+              src="/logo/urbano-wordmark.png"
+              alt="Urbano Café"
+              width={1536}
+              height={1024}
+              priority
+              className="w-[min(72vw,640px)] h-auto"
+            />
           </motion.span>
         </h1>
 
