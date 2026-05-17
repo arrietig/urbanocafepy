@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const PROMO_ITEMS = [
@@ -78,15 +79,17 @@ export function SiteHeader() {
 
           <a
             href="#top"
-            className="justify-self-center flex flex-col items-center leading-none cursor-pointer"
+            className="justify-self-center flex items-center cursor-pointer"
             aria-label="Urbano Café — inicio"
           >
-            <span className="font-display text-[20px] md:text-[24px] tracking-[0.16em] uppercase text-cream">
-              URBANO
-            </span>
-            <span className="hidden md:block text-[8px] tracking-[0.45em] uppercase text-copper mt-[6px]">
-              café · py
-            </span>
+            <Image
+              src="/logo/urbano-bici.png"
+              alt="Urbano Café"
+              width={1064}
+              height={583}
+              priority
+              className="h-9 md:h-11 w-auto"
+            />
           </a>
 
           <div className="justify-self-end flex items-center gap-3">
