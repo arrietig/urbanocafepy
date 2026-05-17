@@ -136,16 +136,16 @@ export function Ritual() {
 /* --------------------------------------------------- Carta — paneles slide */
 
 const CATEGORIES = [
-  { name: 'Café Calientes',       img: '' },
-  { name: 'Café Fríos',           img: '' },
-  { name: 'Tés Gourmet',          img: '' },
-  { name: 'Brunch',               img: '' },
-  { name: 'Clásicos Urbanos',     img: '' },
-  { name: 'Sándwiches',           img: '' },
-  { name: 'Croissant Dulces',     img: '' },
-  { name: 'Dulces',               img: '' },
-  { name: 'Bebidas',              img: '' },
-  { name: 'Cervezas Artesanales', img: '' },
+  { name: 'Café Calientes',       img: '/galeria/cafe-calientes.jpg' },
+  { name: 'Café Fríos',           img: '/galeria/cafe-frios.jpg' },
+  { name: 'Tés Gourmet',          img: '/galeria/tes-gourmet.jpg' },
+  { name: 'Brunch',               img: '/galeria/brunch.jpg' },
+  { name: 'Clásicos Urbanos',     img: '/galeria/clasicos-urbanos.png' },
+  { name: 'Sándwiches',           img: '/galeria/sandwiches.png' },
+  { name: 'Croissant Dulces',     img: '/galeria/croissant-dulces.jpg' },
+  { name: 'Dulces',               img: '/galeria/dulces.jpg' },
+  { name: 'Bebidas',              img: '/galeria/bebidas.jpg' },
+  { name: 'Cervezas Artesanales', img: '/galeria/cervezas-artesanales.jpg' },
 ];
 
 export function Beans() {
