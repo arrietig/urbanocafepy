@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { PromoBar, SiteHeader, SiteFooter } from '@/components/sections/site-chrome';
+import { SiteHeader, SiteFooter } from '@/components/sections/site-chrome';
 import { Hero } from '@/components/creative/hero';
 import {
   Ritual,
@@ -10,7 +10,6 @@ import {
   Manifesto,
   Subscribe,
   Locations,
-  Newsletter,
 } from '@/components/creative/urbano-creative';
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
 
   return (
     <div id="top" className="grain min-h-screen bg-espresso text-cream">
-      <PromoBar />
       <SiteHeader />
       <main>
         <Hero />
@@ -30,7 +28,6 @@ export default function Home() {
         <Manifesto />
         <Subscribe />
         <Locations />
-        <Newsletter />
       </main>
       <SiteFooter />
     </div>

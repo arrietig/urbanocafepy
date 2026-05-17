@@ -225,24 +225,14 @@ export function Beans() {
                   </span>
                 )}
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 flex items-end justify-between gap-4">
-                <div>
-                  <p className="text-[11px] tracking-[0.22em] uppercase text-copper mb-2">
-                    {b.origin}
-                  </p>
-                  <h3 className="font-serif text-[clamp(1.6rem,3vw,2.6rem)] leading-tight text-cream">
-                    {b.name}
-                  </h3>
-                  <p className="text-cream-soft text-[14px] mt-1">{b.notes}</p>
-                </div>
-                <div className="text-right shrink-0">
-                  <p className="font-display text-[clamp(1.1rem,2vw,1.7rem)] text-cream leading-none">
-                    {b.price}
-                  </p>
-                  <p className="text-[11px] text-muted mt-1 uppercase tracking-[0.14em]">
-                    250 g
-                  </p>
-                </div>
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
+                <p className="text-[11px] tracking-[0.22em] uppercase text-copper mb-2">
+                  {b.origin}
+                </p>
+                <h3 className="font-serif text-[clamp(1.6rem,3vw,2.6rem)] leading-tight text-cream">
+                  {b.name}
+                </h3>
+                <p className="text-cream-soft text-[14px] mt-1">{b.notes}</p>
               </div>
             </motion.article>
           ))}
@@ -403,7 +393,6 @@ export function Subscribe() {
             {[
               'Asesoramiento de granos y métodos',
               'Pedidos y envíos a todo Paraguay',
-              'Preguntas sobre suscripciones',
             ].map((f) => (
               <li key={f} className="flex items-center gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-copper shrink-0" />
@@ -529,52 +518,3 @@ export function Locations() {
   );
 }
 
-/* ---------------------------------------------------------- Newsletter */
-
-export function Newsletter() {
-  return (
-    <section className="bg-espresso px-5 md:px-12 py-24 md:py-36 text-center relative overflow-hidden">
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 font-display uppercase text-[clamp(4rem,20vw,18rem)] leading-none text-stroke opacity-[0.05] select-none"
-      >
-        TUESTE
-      </span>
-      <div className="relative mx-auto max-w-[760px]">
-        <h2 className="font-serif text-[clamp(2.2rem,7vw,5.5rem)] leading-[1.05] text-cream">
-          Sumate a la
-          <br />
-          <span className="italic text-copper">lista de tostado</span>
-        </h2>
-        <p className="text-cream-soft mt-6 mb-10 max-w-[44ch] mx-auto">
-          Avisos de nuevos lotes, cosechas limitadas y eventos en nuestros locales.
-        </p>
-        <form
-          className="flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const btn = e.currentTarget.querySelector('button');
-            if (btn) btn.textContent = 'Gracias ✦';
-          }}
-        >
-          <label htmlFor="nl-email" className="sr-only">
-            Correo electrónico
-          </label>
-          <input
-            id="nl-email"
-            type="email"
-            required
-            placeholder="tu@correo.com"
-            className="flex-1 bg-roast border border-line rounded-full px-6 py-4 text-cream placeholder:text-muted outline-none focus:border-copper transition-colors"
-          />
-          <button
-            type="submit"
-            className="bg-cream text-espresso rounded-full px-8 py-4 text-[12px] tracking-[0.18em] uppercase font-bold hover:bg-copper transition-colors cursor-pointer"
-          >
-            Suscribirme
-          </button>
-        </form>
-      </div>
-    </section>
-  );
-}
