@@ -2,132 +2,56 @@
 
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-/* ----------------------------------------------------------- El ritual */
-
-const STAGES = [
-  {
-    n: '01',
-    label: 'Origen',
-    title: 'Cereza recogida a mano',
-    body: 'Trabajamos directo con familias productoras a más de 1.100 m. Cada microlote llega trazado, sin intermediarios.',
-    img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1400&auto=format&fit=crop',
-  },
-  {
-    n: '02',
-    label: 'Tueste',
-    title: 'Fuego lento, perfil propio',
-    body: 'Tostamos cada semana en Villa Morra. Un perfil distinto por origen, calibrado en mesa de cata antes de salir.',
-    img: 'https://images.unsplash.com/photo-1515442261605-65987783cb6a?q=80&w=1400&auto=format&fit=crop',
-  },
-  {
-    n: '03',
-    label: 'Molienda',
-    title: 'Punto exacto, recién molido',
-    body: 'Molemos al pedido según tu método. El aroma se libera en el momento, nunca antes de tiempo.',
-    img: 'https://images.unsplash.com/photo-1521302200778-33500795e128?q=80&w=1400&auto=format&fit=crop',
-  },
-  {
-    n: '04',
-    label: 'Taza',
-    title: 'El instante que importa',
-    body: 'Dulzura larga, cuerpo aterciopelado y un final limpio. El ritual termina donde empieza tu mañana.',
-    img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop',
-  },
-];
+/* -------------------------------------------------- Socios Comerciales */
 
 export function Ritual() {
-  const ref = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end end'],
-  });
-
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const idx = Math.min(STAGES.length - 1, Math.floor(v * STAGES.length));
-    setActive(idx);
-  });
-
   return (
-    <section id="ritual" ref={ref} className="relative bg-espresso" style={{ height: `${STAGES.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        <motion.span
-          className="absolute top-0 left-0 h-[3px] bg-copper z-20"
-          style={{ width: useTransform(scrollYProgress, [0, 1], ['0%', '100%']) }}
-        />
-
-        <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 pt-10 md:pt-16 flex items-center justify-between">
-          <p className="text-[11px] tracking-[0.4em] uppercase text-copper">Del grano a la taza</p>
-          <p className="text-[11px] tracking-[0.4em] uppercase text-muted">
-            {STAGES[active].n} / 0{STAGES.length}
+    <section id="ritual" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
+      <div className="mx-auto max-w-[1500px] grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
+            Socios Comerciales
           </p>
-        </div>
-
-        <div className="flex-1 mx-auto max-w-[1500px] w-full px-5 md:px-12 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          <div className="relative">
-            {STAGES.map((s, i) => (
-              <motion.div
-                key={s.n}
-                aria-hidden={active !== i}
-                initial={false}
-                animate={{
-                  opacity: active === i ? 1 : 0,
-                  y: active === i ? 0 : 30,
-                }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className={`${active === i ? 'relative' : 'absolute inset-0'} pointer-events-none`}
-              >
-                <span className="font-display text-[clamp(5rem,16vw,13rem)] leading-none text-stroke-copper block">
-                  {s.n}
-                </span>
-                <p className="text-copper text-[12px] tracking-[0.4em] uppercase mt-2 mb-4">
-                  {s.label}
-                </p>
-                <h3 className="font-serif text-[clamp(2rem,5vw,4rem)] leading-[1.05] text-cream max-w-[14ch]">
-                  {s.title}
-                </h3>
-                <p className="text-cream-soft mt-5 max-w-[44ch] leading-relaxed">{s.body}</p>
-              </motion.div>
-            ))}
+          <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+            Café Quinto
+          </h3>
+          <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
+            <p>
+              Un café creado junto a Café Quinto, desde la finca hasta la
+              taza. En Chemex se expresa con elegancia y suavidad: frutas
+              amarillas, almendras suaves y un final floral, limpio.
+            </p>
+            <p>
+              El método realza cada ingrediente y transforma el café en un
+              ritual de pausa y satisfacción.
+            </p>
+            <p className="text-cream">Viví Origen, disfrútalo en Urbano.</p>
           </div>
+        </motion.div>
 
-          <div className="relative aspect-[4/5] md:aspect-square w-full rounded-2xl overflow-hidden">
-            {STAGES.map((s, i) => (
-              <motion.div
-                key={s.n}
-                initial={false}
-                animate={{
-                  opacity: active === i ? 1 : 0,
-                  scale: active === i ? 1 : 1.1,
-                }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={s.img}
-                  alt={s.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 pb-10 md:pb-16 flex gap-3">
-          {STAGES.map((s, i) => (
-            <span
-              key={s.n}
-              className={`h-[2px] flex-1 transition-colors duration-500 ${
-                i <= active ? 'bg-copper' : 'bg-line'
-              }`}
-            />
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+        >
+          <Image
+            src="/socios/cafe-quinto.jpg"
+            alt="Café Quinto"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+        </motion.div>
       </div>
     </section>
   );
