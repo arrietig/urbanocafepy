@@ -1,22 +1,39 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 const WORD = 'URBANO'.split('');
 
+const SLIDES = [
+  { src: '/portada/Poratada-01.jpg', alt: 'Portada Urbano Café 01' },
+  { src: '/portada/Portada-02.jpg',  alt: 'Portada Urbano Café 02' },
+  { src: '/portada/Portada-03.jpg',  alt: 'Portada Urbano Café 03' },
+  { src: '/portada/Portada-04.jpg',  alt: 'Portada Urbano Café 04' },
+  { src: '/portada/Portada-05.jpg',  alt: 'Portada Urbano Café 05' },
+];
+
+const INTERVAL = 5000;
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.28]);
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
-  const titleY = useTransform(scrollYProgress, [0, 1], ['0%', '-40%']);
-  const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const bgY     = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const titleY  = useTransform(scrollYProgress, [0, 1], ['0%', '-40%']);
+  const fade    = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive(i => (i + 1) % SLIDES.length), INTERVAL);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <section
@@ -24,20 +41,32 @@ export function Hero() {
       className="relative min-h-[100svh] -mt-[78px] pt-[78px] overflow-hidden"
       aria-label="Urbano Café — café de especialidad tostado en Asunción"
     >
+      {/* ── Carrusel de fondo ── */}
       <motion.div style={{ scale: bgScale, y: bgY }} className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=2000&auto=format&fit=crop"
-          alt="Taza de café espresso recién servido sobre madera oscura"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.4, ease: 'easeInOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={SLIDES[active].src}
+              alt={SLIDES[active].alt}
+              fill
+              priority={active === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/40 to-espresso" />
         <div className="absolute inset-0 bg-gradient-to-r from-espresso/60 to-transparent" />
       </motion.div>
 
-
+      {/* ── Contenido ── */}
       <motion.div
         style={{ y: titleY, opacity: fade }}
         className="relative z-10 min-h-[100svh] mx-auto max-w-[1500px] px-5 md:px-12 flex flex-col justify-center pt-[12vh] pb-[14vh]"
@@ -59,11 +88,7 @@ export function Hero() {
                 key={i}
                 initial={{ y: '110%', opacity: 0 }}
                 animate={{ y: '0%', opacity: 1 }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.35 + i * 0.07,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
+                transition={{ duration: 0.9, delay: 0.35 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 className="inline-block"
               >
                 {c}
@@ -91,6 +116,31 @@ export function Hero() {
         </motion.p>
       </motion.div>
 
+      {/* ── Dots + contador ── */}
+      <motion.div
+        style={{ opacity: fade }}
+        className="absolute bottom-6 left-5 md:left-12 z-10 flex items-center gap-4"
+      >
+        <span className="text-[10px] tracking-[0.32em] uppercase text-cream-soft tabular-nums">
+          {String(active + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
+        </span>
+        <div className="flex gap-2">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              aria-label={`Foto ${i + 1}`}
+              className="cursor-pointer"
+            >
+              <span className={`block h-[2px] transition-all duration-500 rounded-full ${
+                i === active ? 'w-8 bg-copper' : 'w-3 bg-cream/30 hover:bg-cream/60'
+              }`} />
+            </button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ── Scroll indicator ── */}
       <motion.div
         style={{ opacity: fade }}
         className="absolute bottom-6 right-5 md:right-12 z-10 flex items-center gap-3 text-[10px] tracking-[0.32em] uppercase text-cream-soft"
