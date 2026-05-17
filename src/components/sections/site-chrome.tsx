@@ -22,7 +22,6 @@ const NAV = [
   ['Café', '#cafe'],
   ['El ritual', '#ritual'],
   ['Orígenes', '#origenes'],
-  ['Suscripción', '#suscripcion'],
   ['Locales', '#locales'],
 ] as const;
 
@@ -100,17 +99,6 @@ export function SiteHeader() {
                 <path d="m20 20-3.5-3.5" />
               </svg>
             </button>
-            <a
-              href="#suscripcion"
-              className="group inline-flex items-center gap-2 rounded-full bg-cream text-espresso pl-5 pr-2 py-2 text-[11px] tracking-[0.16em] uppercase font-bold hover:bg-copper transition-colors cursor-pointer"
-            >
-              Pedir café
-              <span className="grid place-items-center w-7 h-7 rounded-full bg-espresso text-cream transition-transform duration-300 group-hover:rotate-45">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17 17 7M17 7H8M17 7v9" />
-                </svg>
-              </span>
-            </a>
           </div>
         </div>
       </header>
