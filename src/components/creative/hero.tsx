@@ -67,7 +67,7 @@ export function Hero() {
       {/* ── Contenido ── */}
       <motion.div
         style={{ y: titleY, opacity: fade }}
-        className="relative z-10 min-h-[100svh] mx-auto max-w-[1500px] px-5 md:px-12 flex flex-col justify-center pt-[12vh] pb-[14vh]"
+        className="relative z-10 min-h-[100svh] mx-auto max-w-[1500px] px-5 md:px-12 flex flex-col items-center justify-center text-center pt-[12vh] pb-[14vh]"
       >
         <h1>
           <span className="sr-only">Urbano Café</span>
@@ -95,8 +95,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.15 }}
           className="mt-8 text-cream-soft max-w-[42ch] text-[15px] md:text-[17px] leading-relaxed"
         >
-          Microlotes trazables de Brasil, Colombia y Etiopía. Tostados cada
-          semana en nuestro laboratorio de Villa Morra.
+          Somos amantes del café, y todo ese amor, te transmitiremos en
+          Urbano Café.
         </motion.p>
       </motion.div>
 
@@ -124,20 +124,6 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* ── Scroll indicator ── */}
-      <motion.div
-        style={{ opacity: fade }}
-        className="absolute bottom-6 right-5 md:right-12 z-10 flex items-center gap-3 text-[10px] tracking-[0.32em] uppercase text-cream-soft"
-      >
-        <span>Scroll</span>
-        <span className="relative block w-px h-12 bg-cream/20 overflow-hidden">
-          <motion.span
-            className="absolute inset-x-0 top-0 h-1/2 bg-copper"
-            animate={{ y: ['-100%', '200%'] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </span>
-      </motion.div>
     </section>
   );
 }
