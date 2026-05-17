@@ -210,21 +210,28 @@ export function Beans() {
 
 const ORIGINS = [
   {
-    word: 'BRASIL',
-    title: 'Cerrado Mineiro',
-    body: 'Familia Pereira, Patrocínio. Suelos volcánicos y secado lento al sol producen una taza redonda, dulce y con cuerpo notable. Compramos toda la cosecha 2026.',
+    word: 'Mariscal',
+    title: 'Mercado Mariscal',
+    body: [
+      'Lunes a Viernes 8 a 21 hs.',
+      'Sábados 9 a 21 hs.',
+      'Domingos 10 a 21 hs.',
+    ],
     img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1800&auto=format&fit=crop',
   },
   {
-    word: 'COLOMBIA',
-    title: 'Huila, lavado',
-    body: 'Don Edilberto fermenta 36 horas en tanques cerrados y seca en parabólico. Una taza limpia, viva, con final a manzana roja.',
+    word: 'Del Sol',
+    title: 'Del Sol',
+    body: [
+      'Lunes a Viernes 8 a 21 hs.',
+      'Sábados y Domingos 9 a 21 hs.',
+    ],
     img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1800&auto=format&fit=crop',
   },
   {
-    word: 'ETIOPÍA',
-    title: 'Yirgacheffe, natural',
-    body: 'Konga reúne a 600 productores pequeños. Proceso natural en cama africana: floral, vibrante, con cuerpo de jugo y final a jazmín.',
+    word: 'Distrito',
+    title: 'Distrito Perseverancia',
+    body: ['Lunes a Domingos 9 a 21 hs.'],
     img: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1800&auto=format&fit=crop',
   },
 ];
@@ -248,7 +255,7 @@ function OriginPanel({
 }: {
   word: string;
   title: string;
-  body: string;
+  body: string[];
   img: string;
   index: number;
 }) {
@@ -274,20 +281,14 @@ function OriginPanel({
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.65 }}
           >
-            <p className="text-[12px] tracking-[0.45em] uppercase text-copper mb-4">
-              Origen 0{index + 1}
-            </p>
             <h2 className="font-serif text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] text-cream">
               {title}
             </h2>
-            <p className="text-cream-soft mt-6 leading-relaxed text-[16px]">{body}</p>
-            <a
-              href="#"
-              className="group inline-flex items-center gap-3 mt-8 text-[12px] tracking-[0.2em] uppercase text-cream hover:text-copper transition-colors cursor-pointer"
-            >
-              Explorar el origen
-              <span className="h-px w-10 bg-current transition-all duration-300 group-hover:w-16" />
-            </a>
+            <div className="text-cream-soft mt-6 leading-relaxed text-[17px] space-y-1">
+              {body.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

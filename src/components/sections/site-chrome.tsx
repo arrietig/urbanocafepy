@@ -22,7 +22,7 @@ export function PromoBar() {
 const NAV = [
   ['Café', '#cafe'],
   ['El ritual', '#ritual'],
-  ['Orígenes', '#origenes'],
+  ['Locales', '#origenes'],
 ] as const;
 
 export function SiteHeader() {
