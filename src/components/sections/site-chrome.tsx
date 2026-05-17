@@ -23,7 +23,6 @@ const NAV = [
   ['Café', '#cafe'],
   ['El ritual', '#ritual'],
   ['Orígenes', '#origenes'],
-  ['Locales', '#locales'],
 ] as const;
 
 export function SiteHeader() {
