@@ -1,69 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eee9df;
-  --foreground: #1a1612;
+  /* ── Paleta Urbano ───────────────────────────────── */
+  --bg:          #3D4336;   /* verde oscuro apagado — fondo principal  */
+  --bg-soft:     #2e3229;   /* verde más oscuro — fondos alternativos  */
+  --bg-alt:      #484e40;   /* verde medio — tarjetas, secciones       */
+  --bg-paper:    #404739;   /* verde ligeramente cálido                */
 
-  --bg: #eee9df;
-  --bg-alt: #e4ddcd;
-  --ink: #1a1612;
-  --ink-soft: #4a3f33;
-  --muted: #8a7e72;
-  --line: #d6cdbb;
-  --paper: #faf6ec;
-  --accent: #6b3410;
-  --accent-2: #c75a2a;
+  --text:        #E0D3A6;   /* amarillo pastel apagado — texto principal */
+  --text-soft:   #b5ab84;   /* amarillo más apagado — texto secundario   */
+  --muted:       #7d7b60;   /* muy apagado — labels, meta               */
+  --line:        #50584a;   /* bordes                                    */
+
+  --accent:      #E0D3A6;   /* amarillo — acento principal               */
+  --accent-bright: #ede5c0; /* amarillo claro — hover / highlight        */
+
+  /* aliases → mantienen los class names existentes sin tocar componentes */
+  --espresso:      var(--bg);
+  --espresso-soft: var(--bg-soft);
+  --roast:         var(--bg-alt);
+  --cream:         var(--text);
+  --cream-soft:    var(--text-soft);
+  --copper:        var(--accent);
+  --copper-deep:   var(--line);
+  --gold:          var(--accent-bright);
+
+  --background: var(--bg);
+  --foreground: var(--text);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-bg: var(--bg);
-  --color-bg-alt: var(--bg-alt);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-paper: var(--paper);
-  --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-cormorant);
-  --font-logo: var(--font-archivo-black);
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-espresso:      var(--bg);
+  --color-espresso-soft: var(--bg-soft);
+  --color-roast:         var(--bg-alt);
+  --color-cream:         var(--text);
+  --color-cream-soft:    var(--text-soft);
+  --color-muted:         var(--muted);
+  --color-line:          var(--line);
+  --color-copper:        var(--accent);
+  --color-copper-deep:   var(--line);
+  --color-gold:          var(--accent-bright);
+  --font-sans:           var(--font-inter);
+  --font-serif:          var(--font-cormorant);
+  --font-display:        var(--font-archivo-black);
 }
 
-html,
-body {
+html, body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: var(--text);
+  color: var(--bg);
 }
 
-html {
-  scroll-behavior: smooth;
+/* text-stroke helpers */
+.text-stroke {
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
+.text-stroke-copper {
+  -webkit-text-stroke: 1.5px var(--accent);
+  color: transparent;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+/* marquee (PromoBar ya es estático — se mantiene por si se reactiva) */
 @keyframes scroll-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-
 .marquee {
   display: inline-flex;
   white-space: nowrap;
-  animation: scroll-x 35s linear infinite;
+  animation: scroll-x 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
