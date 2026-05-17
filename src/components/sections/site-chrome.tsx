@@ -155,7 +155,7 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-[1500px] relative">
-        <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
           <div>
             <p className="font-serif text-[clamp(28px,4vw,44px)] leading-[1.15] max-w-[18ch]">
               Café de especialidad, tostado con paciencia en Asunción.
@@ -177,35 +177,42 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <FooterCol title="Tienda" links={['Granos', 'Suscripción', 'Equipos', 'Tarjetas regalo']} />
-          <FooterCol title="Nosotros" links={['Historia', 'Locales', 'Academia', 'Trabajá acá']} />
-          <FooterCol title="Ayuda" links={['Envíos', 'Mayorista', 'Contacto', 'FAQ']} />
+          <nav>
+            <ul className="flex flex-col gap-3">
+              {[
+                ['Nuestras Delicias', '#cafe'],
+                ['Servicio de Catering', '#catering'],
+                ['Socios Comerciales', '#ritual'],
+                ['Sucursales', '#origenes'],
+              ].map(([l, h]) => (
+                <li key={l}>
+                  <a
+                    href={h}
+                    className="text-[15px] text-cream-soft hover:text-cream transition-colors cursor-pointer"
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         <div className="mt-16 pt-6 border-t border-line flex flex-col md:flex-row justify-between gap-2 text-[12px] text-muted uppercase tracking-[0.12em]">
-          <span>© 2026 Urbano Café · Asunción, Paraguay</span>
-          <span>Hecho con cuidado, tostado con fuego lento.</span>
+          <span>Todos los Derechos reservados · 2021 · Asunción, Paraguay</span>
+          <span>
+            Desarrollado por{' '}
+            <a
+              href="https://www.genesis.com.py"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cream-soft hover:text-copper transition-colors cursor-pointer"
+            >
+              Genesis Development
+            </a>
+          </span>
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterCol({ title, links }: { title: string; links: string[] }) {
-  return (
-    <div>
-      <h4 className="text-[11px] font-bold tracking-[0.24em] uppercase text-copper mb-5">
-        {title}
-      </h4>
-      <ul className="flex flex-col gap-3">
-        {links.map((l) => (
-          <li key={l}>
-            <a href="#" className="text-[14px] text-cream-soft hover:text-cream transition-colors cursor-pointer">
-              {l}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
