@@ -101,6 +101,44 @@ export function Ritual() {
             </div>
           </motion.div>
         </div>
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+              Antillas Café
+            </h3>
+            <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
+              <p>
+                Antillas es la tostaduría que representa el sabor del café
+                boliviano con sus packs de Mañana tropical, Tarde dulce y
+                Noche intensa para Espresso, y el delicioso pacamara: Siesta
+                sagrada.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+          >
+            <Image
+              src="/socios/antillas.jpg"
+              alt="Antillas Café"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
