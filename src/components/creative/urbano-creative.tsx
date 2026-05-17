@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 /* ----------------------------------------------------------- El ritual */
@@ -133,99 +133,101 @@ export function Ritual() {
   );
 }
 
-/* --------------------------------------------------------- Bean catalog */
+/* --------------------------------------------------- Carta — paneles slide */
 
-const BEANS = [
-  {
-    origin: 'Brasil · Minas Gerais',
-    name: 'Cerrado Mineiro',
-    notes: 'Cacao · Caramelo · Naranja',
-    price: 'Gs. 95.000',
-    tag: 'Nuevo',
-    img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=1100&q=80&auto=format&fit=crop',
-    big: true,
-  },
-  {
-    origin: 'Colombia · Huila',
-    name: 'San Agustín Lavado',
-    notes: 'Panela · Manzana roja · Almendra',
-    price: 'Gs. 110.000',
-    img: 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=900&q=80&auto=format&fit=crop',
-  },
-  {
-    origin: 'Etiopía · Yirgacheffe',
-    name: 'Konga Natural',
-    notes: 'Frutilla · Jazmín · Durazno',
-    price: 'Gs. 145.000',
-    tag: 'Edición',
-    img: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=900&q=80&auto=format&fit=crop',
-  },
-  {
-    origin: 'Blend · Casa',
-    name: 'Asunción Blend',
-    notes: 'Chocolate · Maní · Miel',
-    price: 'Gs. 85.000',
-    img: 'https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=1100&q=80&auto=format&fit=crop',
-    big: true,
-  },
+const CATEGORIES = [
+  { name: 'Café Calientes',       img: '' },
+  { name: 'Café Fríos',           img: '' },
+  { name: 'Tés Gourmet',          img: '' },
+  { name: 'Brunch',               img: '' },
+  { name: 'Clásicos Urbanos',     img: '' },
+  { name: 'Sándwiches',           img: '' },
+  { name: 'Croissant Dulces',     img: '' },
+  { name: 'Dulces',               img: '' },
+  { name: 'Bebidas',              img: '' },
+  { name: 'Cervezas Artesanales', img: '' },
 ];
 
 export function Beans() {
+  const ref = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const maxXRef = useRef(0);
+  const [, setReady] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end end'],
+  });
+
+  useEffect(() => {
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      maxXRef.current = Math.max(0, track.scrollWidth - window.innerWidth);
+      setReady((v) => !v);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  const x = useTransform(scrollYProgress, (v) => -v * maxXRef.current);
+
   return (
-    <section id="cafe" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
-      <div className="mx-auto max-w-[1500px]">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-20">
-          <div>
-            <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
-              Café hecho con amor desde el 2021
-            </p>
-            <h2 className="font-display uppercase text-[clamp(2.5rem,9vw,8rem)] leading-[0.85] text-cream">
-              Nuestras
-              <br />
-              <span className="text-stroke">delicias</span>
-            </h2>
-          </div>
+    <section
+      id="cafe"
+      ref={ref}
+      className="relative bg-espresso"
+      style={{ height: `${CATEGORIES.length * 42}vh` }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
+        <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 pt-24 md:pt-28 pb-6 md:pb-10">
+          <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
+            Café hecho con amor desde el 2021
+          </p>
+          <h2 className="font-display uppercase text-[clamp(2rem,7vw,5.5rem)] leading-[0.85] text-cream">
+            Nuestras <span className="text-stroke">delicias</span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 md:auto-rows-fr">
-          {BEANS.map((b) => (
-            <motion.article
-              key={b.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative overflow-hidden rounded-2xl bg-roast cursor-pointer ${
-                b.big ? 'md:col-span-2' : ''
-              }`}
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex flex-1 gap-3 md:gap-4 px-5 md:px-12 pb-10"
+        >
+          {CATEGORIES.map((c, i) => (
+            <article
+              key={c.name}
+              className="group relative shrink-0 w-[78vw] sm:w-[42vw] lg:w-[27vw] h-full overflow-hidden rounded-2xl bg-roast cursor-pointer"
             >
-              <div className={`relative ${b.big ? 'aspect-[16/10]' : 'aspect-[4/5]'}`}>
+              {c.img ? (
                 <Image
-                  src={b.img}
-                  alt={b.name}
+                  src={c.img}
+                  alt={c.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 27vw"
                   className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/20 to-transparent" />
-                {b.tag && (
-                  <span className="absolute top-4 left-4 text-[10px] tracking-[0.2em] uppercase px-3 py-[6px] rounded-full bg-copper text-espresso font-bold">
-                    {b.tag}
-                  </span>
-                )}
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
-                <p className="text-[11px] tracking-[0.22em] uppercase text-copper mb-2">
-                  {b.origin}
-                </p>
-                <h3 className="font-serif text-[clamp(1.6rem,3vw,2.6rem)] leading-tight text-cream">
-                  {b.name}
+              ) : (
+                <span
+                  aria-hidden
+                  className="absolute inset-0 grid place-items-center font-display text-stroke text-[clamp(5rem,16vw,12rem)] opacity-[0.08] select-none"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col items-center text-center">
+                <h3 className="font-serif text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
+                  {c.name}
                 </h3>
-                <p className="text-cream-soft text-[14px] mt-1">{b.notes}</p>
+                <span className="mt-5 inline-block border border-cream/40 text-cream text-[11px] tracking-[0.24em] uppercase px-7 py-3 rounded-full group-hover:bg-cream group-hover:text-espresso transition-colors">
+                  Ver
+                </span>
               </div>
-            </motion.article>
+            </article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
