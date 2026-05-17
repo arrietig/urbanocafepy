@@ -260,7 +260,7 @@ function OriginPanel({
   index: number;
 }) {
   return (
-    <div className="relative min-h-[90vh] flex items-center overflow-hidden border-b border-line">
+    <div className="relative min-h-[90vh] flex items-end overflow-hidden border-b border-line pb-16 md:pb-24">
       <div className="absolute inset-0">
         <Image src={img} alt={title} fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-espresso/70" />
@@ -268,7 +268,7 @@ function OriginPanel({
 
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display uppercase text-[clamp(4rem,22vw,20rem)] leading-none text-stroke opacity-20 whitespace-nowrap select-none"
+        className="pointer-events-none absolute inset-x-0 top-[42%] -translate-y-1/2 text-center font-display uppercase text-[clamp(4rem,22vw,20rem)] leading-none text-stroke opacity-20 whitespace-nowrap select-none"
       >
         {word}
       </span>
