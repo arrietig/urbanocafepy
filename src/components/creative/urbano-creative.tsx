@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 /* -------------------------------------------------- Socios Comerciales */
 
@@ -200,6 +200,97 @@ export function Beans() {
               </div>
             </article>
           ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------ Servicios de Catering */
+
+const CATERING_IMGS = [
+  '/catering/catering-01.jpg',
+  '/catering/catering-02.jpg',
+  '/catering/catering-03.jpg',
+];
+
+export function Catering() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % CATERING_IMGS.length),
+      4500,
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <section id="catering" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
+      <div className="mx-auto max-w-[1500px] grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
+            Servicios de Catering
+          </p>
+          <h2 className="font-display uppercase text-[clamp(2.4rem,8vw,7rem)] leading-[0.85] text-cream">
+            <span className="line-through decoration-copper decoration-[0.08em] text-cream/60">
+              Catering
+            </span>
+            <br />
+            <span className="font-serif italic font-normal normal-case text-gold text-[clamp(1.8rem,5vw,4rem)]">
+              Experiencia en cada evento
+            </span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+        >
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.1, ease: 'easeInOut' }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={CATERING_IMGS[active]}
+                alt={`Catering Urbano Café ${active + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            {CATERING_IMGS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Foto ${i + 1}`}
+                className="cursor-pointer"
+              >
+                <span
+                  className={`block h-[3px] rounded-full transition-all duration-500 ${
+                    i === active ? 'w-8 bg-copper' : 'w-3 bg-cream/40 hover:bg-cream/70'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
