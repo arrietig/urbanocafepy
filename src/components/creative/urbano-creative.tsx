@@ -9,49 +9,98 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 export function Ritual() {
   return (
     <section id="ritual" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
-      <div className="mx-auto max-w-[1500px] grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="mx-auto max-w-[1500px]">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6 }}
+          className="text-[11px] tracking-[0.4em] uppercase text-copper mb-12 md:mb-20"
         >
-          <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
-            Socios Comerciales
-          </p>
-          <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
-            Café Quinto
-          </h3>
-          <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
-            <p>
-              Un café creado junto a Café Quinto, desde la finca hasta la
-              taza. En Chemex se expresa con elegancia y suavidad: frutas
-              amarillas, almendras suaves y un final floral, limpio.
-            </p>
-            <p>
-              El método realza cada ingrediente y transforma el café en un
-              ritual de pausa y satisfacción.
-            </p>
-            <p className="text-cream">Viví Origen, disfrútalo en Urbano.</p>
-          </div>
-        </motion.div>
+          Socios Comerciales
+        </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 1.04 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
-        >
-          <Image
-            src="/socios/cafe-quinto.jpg"
-            alt="Café Quinto"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+              Café Quinto
+            </h3>
+            <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
+              <p>
+                Un café creado junto a Café Quinto, desde la finca hasta la
+                taza. En Chemex se expresa con elegancia y suavidad: frutas
+                amarillas, almendras suaves y un final floral, limpio.
+              </p>
+              <p>
+                El método realza cada ingrediente y transforma el café en un
+                ritual de pausa y satisfacción.
+              </p>
+              <p className="text-cream">Viví Origen, disfrútalo en Urbano.</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+          >
+            <Image
+              src="/socios/cafe-quinto.jpg"
+              alt="Café Quinto"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+          </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden md:order-1 order-2"
+          >
+            <video
+              src="/socios/totem.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="md:order-2 order-1"
+          >
+            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+              Totem Tostadores
+            </h3>
+            <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
+              <p>
+                Nuestro House Blend es tostado todos los días por nuestros
+                amigos de Totem Tostadores para ofrecerte café fresco en
+                nuestros locales y también para que nos lleves adonde quieras.
+              </p>
+              <p className="text-cream">Disfrutá, en Urbano Café.</p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
