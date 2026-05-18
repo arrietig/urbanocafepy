@@ -21,7 +21,8 @@ export function PromoBar() {
 
 const NAV = [
   ['Café', '#cafe'],
-  ['El ritual', '#ritual'],
+  ['Catering', '#catering'],
+  ['Socios', '#ritual'],
   ['Locales', '#origenes'],
 ] as const;
 
@@ -162,8 +163,7 @@ export function SiteFooter() {
             </p>
             <div className="flex gap-4 text-[13px] mt-7 uppercase tracking-[0.12em]">
               {[
-                ['Instagram', 'https://www.instagram.com/urbanocafepy'],
-                ['TikTok', '#'],
+                ['Instagram', 'https://www.instagram.com/urbanocafepy/'],
                 ['WhatsApp', '#'],
               ].map(([l, h]) => (
                 <a
