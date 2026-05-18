@@ -131,7 +131,7 @@ export function SiteHeader() {
                   <a
                     href={href}
                     onClick={() => setOpen(false)}
-                    className="font-serif text-[12vw] leading-[1.05] text-cream hover:text-copper transition-colors cursor-pointer"
+                    className="font-alexandria font-semibold text-[12vw] leading-[1.05] text-cream hover:text-copper transition-colors cursor-pointer"
                   >
                     {label}
                   </a>
@@ -158,9 +158,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1500px] relative">
         <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
           <div>
-            <p className="font-anton uppercase text-[clamp(28px,4vw,44px)] leading-[1.15] max-w-[18ch]">
-              Café de especialidad, tostado con paciencia en Asunción.
-            </p>
+            <Image
+              src="/logo/urbano-principal.png"
+              alt="Urbano Café"
+              width={938}
+              height={949}
+              className="w-[clamp(160px,22vw,240px)] h-auto"
+            />
             <div className="flex gap-4 text-[13px] mt-7 uppercase tracking-[0.12em]">
               {[
                 ['Instagram', 'https://www.instagram.com/urbanocafepy/'],
