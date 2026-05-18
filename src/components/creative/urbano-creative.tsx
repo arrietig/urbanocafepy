@@ -397,7 +397,11 @@ function OriginPanel({
 
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[42%] -translate-y-1/2 text-center font-display uppercase text-[clamp(4rem,22vw,20rem)] leading-none text-stroke opacity-20 whitespace-nowrap select-none"
+        style={{
+          WebkitTextStroke: '1.5px #E0D3A6',
+          color: 'transparent',
+        }}
+        className="pointer-events-none absolute inset-x-0 top-[42%] -translate-y-1/2 px-4 text-center font-display uppercase text-[clamp(2.25rem,13vw,15rem)] leading-none opacity-[0.45] whitespace-nowrap select-none"
       >
         {word}
       </span>
