@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Archivo_Black, Anton } from "next/font/google";
+import { Alexandria, Cormorant_Garamond, Archivo_Black, Anton } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const alexandria = Alexandria({
+  variable: "--font-alexandria",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const cormorant = Cormorant_Garamond({
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${inter.variable} ${cormorant.variable} ${archivoBlack.variable} ${anton.variable} antialiased`}
+        className={`${alexandria.variable} ${cormorant.variable} ${archivoBlack.variable} ${anton.variable} antialiased`}
       >
         {children}
       </body>

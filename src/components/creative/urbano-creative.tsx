@@ -229,7 +229,7 @@ export function Beans() {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col items-center text-center">
-                <h3 className="font-serif text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
+                <h3 className="font-alexandria font-semibold text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
                   {c.name}
                 </h3>
                 <span className="mt-5 inline-block border border-cream/40 text-cream text-[11px] tracking-[0.24em] uppercase px-7 py-3 rounded-full group-hover:bg-cream group-hover:text-espresso transition-colors">
@@ -280,7 +280,7 @@ export function Catering() {
               Catering
             </span>
             <br />
-            <span className="font-serif italic font-normal normal-case text-gold text-[clamp(1.8rem,5vw,4rem)]">
+            <span className="font-alexandria font-normal normal-case text-gold text-[clamp(1.8rem,5vw,4rem)]">
               Experiencia en cada evento
             </span>
           </h2>
@@ -443,7 +443,7 @@ export function Manifesto() {
         <p className="font-anton text-[13px] tracking-[0.45em] uppercase text-copper mb-10">
           Manifiesto
         </p>
-        <p className="font-serif text-[clamp(1.8rem,5.5vw,4.6rem)] leading-[1.18]">
+        <p className="font-alexandria font-medium text-[clamp(1.8rem,5.5vw,4.6rem)] leading-[1.18]">
           {MANIFESTO_LINES.map((line, i) => (
             <motion.span
               key={i}
