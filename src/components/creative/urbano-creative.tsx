@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /* -------------------------------------------------- Socios Comerciales */
 
@@ -160,85 +160,43 @@ const CATEGORIES = [
 ];
 
 export function Beans() {
-  const ref = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const maxXRef = useRef(0);
-  const [, setReady] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end end'],
-  });
-
-  useEffect(() => {
-    const measure = () => {
-      const track = trackRef.current;
-      if (!track) return;
-      maxXRef.current = Math.max(0, track.scrollWidth - window.innerWidth);
-      setReady((v) => !v);
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
-
-  const x = useTransform(scrollYProgress, (v) => -v * maxXRef.current);
-
   return (
-    <section
-      id="cafe"
-      ref={ref}
-      className="relative bg-espresso"
-      style={{ height: `${CATEGORIES.length * 42}vh` }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 pt-24 md:pt-28 pb-6 md:pb-10">
-          <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
-            Café hecho con amor desde el 2021
-          </p>
-          <h2 className="font-display uppercase text-[clamp(2rem,7vw,5.5rem)] leading-[0.85] text-cream">
-            Nuestras <span className="text-stroke">delicias</span>
-          </h2>
-        </div>
+    <section id="cafe" className="bg-espresso py-20 md:py-32 overflow-hidden">
+      <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 mb-10 md:mb-14">
+        <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
+          Café hecho con amor desde el 2021
+        </p>
+        <h2 className="font-display uppercase text-[clamp(2rem,7vw,5.5rem)] leading-[0.85] text-cream">
+          Nuestras <span className="text-stroke">delicias</span>
+        </h2>
+      </div>
 
-        <motion.div
-          ref={trackRef}
-          style={{ x }}
-          className="flex flex-1 gap-3 md:gap-4 px-5 md:px-12 pb-10"
-        >
-          {CATEGORIES.map((c, i) => (
-            <article
-              key={c.name}
-              className="group relative shrink-0 w-[78vw] sm:w-[42vw] lg:w-[27vw] h-full overflow-hidden rounded-2xl bg-roast cursor-pointer"
-            >
-              {c.img ? (
-                <Image
-                  src={c.img}
-                  alt={c.name}
-                  fill
-                  sizes="(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 27vw"
-                  className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-                />
-              ) : (
-                <span
-                  aria-hidden
-                  className="absolute inset-0 grid place-items-center font-display text-stroke text-[clamp(5rem,16vw,12rem)] opacity-[0.08] select-none"
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col items-center text-center">
-                <h3 className="font-alexandria font-semibold text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
-                  {c.name}
-                </h3>
-                <span className="mt-5 inline-block border border-cream/40 text-cream text-[11px] tracking-[0.24em] uppercase px-7 py-3 rounded-full group-hover:bg-cream group-hover:text-espresso transition-colors">
-                  Ver
-                </span>
-              </div>
-            </article>
-          ))}
-        </motion.div>
+      <div
+        className="flex gap-3 md:gap-4 px-5 md:px-12 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {CATEGORIES.map((c) => (
+          <article
+            key={c.name}
+            className="group relative snap-start shrink-0 w-[78vw] sm:w-[44vw] lg:w-[30vw] h-[70vh] max-h-[680px] overflow-hidden rounded-2xl bg-roast cursor-pointer"
+          >
+            <Image
+              src={c.img}
+              alt={c.name}
+              fill
+              sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 30vw"
+              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col items-center text-center">
+              <h3 className="font-alexandria font-semibold text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
+                {c.name}
+              </h3>
+              <span className="mt-5 inline-block border border-cream/40 text-cream text-[11px] tracking-[0.24em] uppercase px-7 py-3 rounded-full group-hover:bg-cream group-hover:text-espresso transition-colors">
+                Ver
+              </span>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
