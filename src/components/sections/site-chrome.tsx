@@ -158,7 +158,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1500px] relative">
         <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
           <div>
-            <p className="font-serif text-[clamp(28px,4vw,44px)] leading-[1.15] max-w-[18ch]">
+            <p className="font-anton uppercase text-[clamp(28px,4vw,44px)] leading-[1.15] max-w-[18ch]">
               Café de especialidad, tostado con paciencia en Asunción.
             </p>
             <div className="flex gap-4 text-[13px] mt-7 uppercase tracking-[0.12em]">

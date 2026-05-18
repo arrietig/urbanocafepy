@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Archivo_Black } from "next/font/google";
+import { Inter, Cormorant_Garamond, Archivo_Black, Anton } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,6 +20,12 @@ const archivoBlack = Archivo_Black({
   weight: "400",
 });
 
+const anton = Anton({
+  variable: "--font-anton",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Urbano Café — Café de especialidad en Paraguay",
   description:
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${inter.variable} ${cormorant.variable} ${archivoBlack.variable} antialiased`}
+        className={`${inter.variable} ${cormorant.variable} ${archivoBlack.variable} ${anton.variable} antialiased`}
       >
         {children}
       </body>
