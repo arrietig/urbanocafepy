@@ -45,6 +45,7 @@
   --font-sans:           var(--font-inter);
   --font-serif:          var(--font-cormorant);
   --font-display:        var(--font-archivo-black);
+  --font-anton:          var(--font-anton);
 }
 
 html, body {

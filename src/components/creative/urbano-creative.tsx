@@ -27,7 +27,7 @@ export function Ritual() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+            <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
               Café Quinto
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
@@ -88,7 +88,7 @@ export function Ritual() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="md:order-2 order-1"
           >
-            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+            <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
               Totem Tostadores
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
@@ -109,7 +109,7 @@ export function Ritual() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="font-serif text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
+            <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
               Antillas Café
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
@@ -410,7 +410,7 @@ function OriginPanel({
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.65 }}
           >
-            <h2 className="font-serif text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] text-cream">
+            <h2 className="font-anton text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] text-cream">
               {title}
             </h2>
             <div className="text-cream-soft mt-6 leading-relaxed text-[17px] space-y-1">
@@ -440,7 +440,7 @@ export function Manifesto() {
   return (
     <section id="manifiesto" className="bg-espresso py-28 md:py-44 px-5 md:px-12">
       <div className="mx-auto max-w-[1100px]">
-        <p className="text-[11px] tracking-[0.45em] uppercase text-copper mb-10">
+        <p className="font-anton text-[13px] tracking-[0.45em] uppercase text-copper mb-10">
           Manifiesto
         </p>
         <p className="font-serif text-[clamp(1.8rem,5.5vw,4.6rem)] leading-[1.18]">
@@ -477,7 +477,7 @@ export function Subscribe() {
         <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
           Pedidos y consultas
         </p>
-        <h2 className="font-display uppercase text-[clamp(2.6rem,9vw,7rem)] leading-[0.84] text-cream">
+        <h2 className="font-anton uppercase text-[clamp(2.6rem,9vw,7rem)] leading-[0.84] text-cream">
           Contáctanos
         </h2>
         <p className="text-cream-soft mt-8 max-w-[44ch] mx-auto text-[16px] leading-relaxed">
