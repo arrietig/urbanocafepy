@@ -1,16 +1,17 @@
 'use client';
 
-import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 const SLIDES = [
-  { src: '/portada/Poratada-01.jpg', alt: 'Portada Urbano Café 01' },
-  { src: '/portada/Portada-02.jpg',  alt: 'Portada Urbano Café 02' },
-  { src: '/portada/Portada-03.jpg',  alt: 'Portada Urbano Café 03' },
-  { src: '/portada/Portada-04.jpg',  alt: 'Portada Urbano Café 04' },
-  { src: '/portada/Portada-05.jpg',  alt: 'Portada Urbano Café 05' },
+  { label: 'Portada 01' },
+  { label: 'Portada 02' },
+  { label: 'Portada 03' },
+  { label: 'Portada 04' },
+  { label: 'Portada 05' },
 ];
+
+const SLIDE_BG = ['#3a4237', '#2e3229', '#3f4a3b', '#3d4336', '#484e40'];
 
 const INTERVAL = 5000;
 
@@ -37,9 +38,9 @@ export function Hero() {
     <section
       ref={ref}
       className="relative min-h-[100svh] -mt-[78px] pt-[78px] overflow-hidden"
-      aria-label="Urbano Café — café de especialidad tostado en Asunción"
+      aria-label="Urbano Café — hero"
     >
-      {/* ── Carrusel de fondo ── */}
+      {/* ── Carrusel placeholder ── */}
       <motion.div style={{ scale: bgScale, y: bgY }} className="absolute inset-0">
         <AnimatePresence mode="sync">
           <motion.div
@@ -48,20 +49,22 @@ export function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
-            className="absolute inset-0"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-4 select-none"
+            style={{ backgroundColor: SLIDE_BG[active] }}
           >
-            <Image
-              src={SLIDES[active].src}
-              alt={SLIDES[active].alt}
-              fill
-              priority={active === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
+            <span
+              className="font-display text-[clamp(6rem,28vw,24rem)] leading-none tabular-nums"
+              style={{ WebkitTextStroke: '2px rgba(224,211,166,0.15)', color: 'transparent' }}
+            >
+              {String(active + 1).padStart(2, '0')}
+            </span>
+            <span className="text-[10px] tracking-[0.4em] uppercase text-cream/20">
+              Foto de portada
+            </span>
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/40 to-espresso" />
-        <div className="absolute inset-0 bg-gradient-to-r from-espresso/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-espresso/60 via-espresso/30 to-espresso" />
+        <div className="absolute inset-0 bg-gradient-to-r from-espresso/50 to-transparent" />
       </motion.div>
 
       {/* ── Contenido ── */}
@@ -78,14 +81,11 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="block"
           >
-            <Image
-              src="/logo/urbano-wordmark.png"
-              alt="Urbano Café"
-              width={1536}
-              height={1024}
-              priority
-              className="w-[min(72vw,640px)] h-auto"
-            />
+            <div className="w-[min(72vw,560px)] h-[90px] md:h-[120px] border-2 border-dashed border-cream/30 rounded-2xl flex items-center justify-center mx-auto">
+              <span className="font-display text-cream text-[clamp(1.4rem,5vw,3.5rem)] tracking-[0.55em] uppercase">
+                LOGO
+              </span>
+            </div>
           </motion.span>
         </h1>
 
@@ -123,7 +123,6 @@ export function Hero() {
           ))}
         </div>
       </motion.div>
-
     </section>
   );
 }
