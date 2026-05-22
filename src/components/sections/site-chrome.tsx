@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const PROMO_ITEMS = [
@@ -77,19 +76,17 @@ export function SiteHeader() {
             <span className={`block h-[2px] w-6 bg-cream transition-transform duration-300 ${open ? '-translate-y-2 -rotate-45' : ''}`} />
           </button>
 
+          {/* LOGO placeholder */}
           <a
             href="#top"
             className="justify-self-center flex items-center cursor-pointer"
             aria-label="Urbano Café — inicio"
           >
-            <Image
-              src="/logo/urbano-bici.png"
-              alt="Urbano Café"
-              width={1064}
-              height={583}
-              priority
-              className="h-9 md:h-11 w-auto"
-            />
+            <div className="h-9 md:h-11 w-28 md:w-36 border border-dashed border-cream/40 rounded-lg flex items-center justify-center">
+              <span className="text-cream text-[10px] tracking-[0.35em] uppercase font-bold select-none">
+                LOGO
+              </span>
+            </div>
           </a>
 
           <nav className="justify-self-start hidden md:block">
@@ -158,13 +155,12 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1500px] relative">
         <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
           <div>
-            <Image
-              src="/logo/urbano-principal.png"
-              alt="Urbano Café"
-              width={938}
-              height={949}
-              className="w-[clamp(160px,22vw,240px)] h-auto"
-            />
+            {/* LOGO placeholder */}
+            <div className="w-[clamp(160px,22vw,240px)] h-20 border border-dashed border-cream/40 rounded-xl flex items-center justify-center select-none">
+              <span className="text-cream text-[13px] tracking-[0.35em] uppercase font-bold">
+                LOGO
+              </span>
+            </div>
             <div className="flex gap-4 text-[13px] mt-7 uppercase tracking-[0.12em]">
               {[
                 ['Instagram', 'https://www.instagram.com/urbanocafepy/'],

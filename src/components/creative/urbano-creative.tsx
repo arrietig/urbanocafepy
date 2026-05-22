@@ -1,8 +1,56 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+/* ── Placeholder de imagen reutilizable ───────────────────────── */
+
+const DEMO_BG = [
+  '#3a4237', '#363d33', '#404738', '#3d4336', '#484e40',
+  '#393f35', '#3f4a3b', '#3b4537', '#404639', '#3e4538',
+];
+
+function ImgPlaceholder({ label, index = 0 }: { label: string; index?: number }) {
+  const bg = DEMO_BG[index % DEMO_BG.length];
+  return (
+    <div
+      className="absolute inset-0 flex flex-col items-center justify-center gap-3 select-none"
+      style={{ backgroundColor: bg }}
+    >
+      <span
+        className="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none tabular-nums"
+        style={{ WebkitTextStroke: '1.5px rgba(224,211,166,0.2)', color: 'transparent' }}
+      >
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <span className="text-[10px] tracking-[0.35em] uppercase text-cream/25 text-center px-4 max-w-[16ch]">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function VidePlaceholder({ label }: { label: string }) {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 select-none bg-[#2e3229]">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="rgba(224,211,166,0.2)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="5 3 19 12 5 21 5 3" />
+      </svg>
+      <span className="text-[10px] tracking-[0.35em] uppercase text-cream/25 text-center px-4 max-w-[20ch]">
+        {label}
+      </span>
+    </div>
+  );
+}
 
 /* -------------------------------------------------- Socios Comerciales */
 
@@ -20,6 +68,7 @@ export function Ritual() {
           Socios Comerciales
         </motion.p>
 
+        {/* Café Quinto */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -49,36 +98,22 @@ export function Ritual() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden ring-1 ring-inset ring-cream/10"
           >
-            <Image
-              src="/socios/cafe-quinto.jpg"
-              alt="Café Quinto"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+            <ImgPlaceholder label="Foto Café Quinto" index={0} />
           </motion.div>
         </div>
 
+        {/* Totem Tostadores */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
           <motion.div
             initial={{ opacity: 0, scale: 1.04 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden md:order-1 order-2"
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden md:order-1 order-2 ring-1 ring-inset ring-cream/10"
           >
-            <video
-              src="/socios/totem.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+            <VidePlaceholder label="Video · Totem Tostadores" />
           </motion.div>
 
           <motion.div
@@ -102,6 +137,7 @@ export function Ritual() {
           </motion.div>
         </div>
 
+        {/* Antillas Café */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -127,16 +163,9 @@ export function Ritual() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+            className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden ring-1 ring-inset ring-cream/10"
           >
-            <Image
-              src="/socios/antillas.jpg"
-              alt="Antillas Café"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
+            <ImgPlaceholder label="Foto Antillas Café" index={1} />
           </motion.div>
         </div>
       </div>
@@ -147,16 +176,16 @@ export function Ritual() {
 /* --------------------------------------------------- Carta — paneles slide */
 
 const CATEGORIES = [
-  { name: 'Café Calientes',       img: '/galeria/cafe-calientes.jpg' },
-  { name: 'Café Fríos',           img: '/galeria/cafe-frios.jpg' },
-  { name: 'Tés Gourmet',          img: '/galeria/tes-gourmet.jpg' },
-  { name: 'Brunch',               img: '/galeria/brunch.jpg' },
-  { name: 'Clásicos Urbanos',     img: '/galeria/clasicos-urbanos.jpg' },
-  { name: 'Sándwiches',           img: '/galeria/sandwiches.jpg' },
-  { name: 'Croissant Dulces',     img: '/galeria/croissant-dulces.jpg' },
-  { name: 'Dulces',               img: '/galeria/dulces.jpg' },
-  { name: 'Bebidas',              img: '/galeria/bebidas.jpg' },
-  { name: 'Cervezas Artesanales', img: '/galeria/cervezas-artesanales.jpg' },
+  { name: 'Café Calientes' },
+  { name: 'Café Fríos' },
+  { name: 'Tés Gourmet' },
+  { name: 'Brunch' },
+  { name: 'Clásicos Urbanos' },
+  { name: 'Sándwiches' },
+  { name: 'Croissant Dulces' },
+  { name: 'Dulces' },
+  { name: 'Bebidas' },
+  { name: 'Cervezas Artesanales' },
 ];
 
 export function Beans() {
@@ -174,19 +203,13 @@ export function Beans() {
       <div
         className="flex gap-3 md:gap-4 px-5 md:px-12 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
-        {CATEGORIES.map((c) => (
+        {CATEGORIES.map((c, i) => (
           <article
             key={c.name}
-            className="group relative snap-start shrink-0 w-[78vw] sm:w-[44vw] lg:w-[30vw] h-[70vh] max-h-[680px] overflow-hidden rounded-2xl bg-roast cursor-pointer"
+            className="group relative snap-start shrink-0 w-[78vw] sm:w-[44vw] lg:w-[30vw] h-[70vh] max-h-[680px] overflow-hidden rounded-2xl cursor-pointer"
           >
-            <Image
-              src={c.img}
-              alt={c.name}
-              fill
-              sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 30vw"
-              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
+            <ImgPlaceholder label={c.name} index={i} />
+            <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/20 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col items-center text-center">
               <h3 className="font-alexandria font-semibold text-[clamp(1.6rem,2.6vw,2.6rem)] leading-tight text-cream">
                 {c.name}
@@ -204,18 +227,14 @@ export function Beans() {
 
 /* ------------------------------------------------ Servicios de Catering */
 
-const CATERING_IMGS = [
-  '/catering/catering-01.jpg',
-  '/catering/catering-02.jpg',
-  '/catering/catering-03.jpg',
-];
+const CATERING_COUNT = 3;
 
 export function Catering() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const id = setInterval(
-      () => setActive((i) => (i + 1) % CATERING_IMGS.length),
+      () => setActive((i) => (i + 1) % CATERING_COUNT),
       4500,
     );
     return () => clearInterval(id);
@@ -249,7 +268,7 @@ export function Catering() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
+          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden ring-1 ring-inset ring-cream/10"
         >
           <AnimatePresence mode="sync">
             <motion.div
@@ -260,19 +279,12 @@ export function Catering() {
               transition={{ duration: 1.1, ease: 'easeInOut' }}
               className="absolute inset-0"
             >
-              <Image
-                src={CATERING_IMGS[active]}
-                alt={`Catering Urbano Café ${active + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
+              <ImgPlaceholder label={`Catering · foto ${active + 1}`} index={active + 4} />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
 
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-            {CATERING_IMGS.map((_, i) => (
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {Array.from({ length: CATERING_COUNT }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
@@ -304,7 +316,6 @@ const ORIGINS = [
       'Sábados 9 a 21 hs.',
       'Domingos 10 a 21 hs.',
     ],
-    img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1800&auto=format&fit=crop',
   },
   {
     word: 'Del Sol',
@@ -313,13 +324,11 @@ const ORIGINS = [
       'Lunes a Viernes 8 a 21 hs.',
       'Sábados y Domingos 9 a 21 hs.',
     ],
-    img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1800&auto=format&fit=crop',
   },
   {
     word: 'Distrito',
     title: 'Distrito Perseverancia',
     body: ['Lunes a Domingos 9 a 21 hs.'],
-    img: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1800&auto=format&fit=crop',
   },
 ];
 
@@ -337,21 +346,19 @@ function OriginPanel({
   word,
   title,
   body,
-  img,
   index,
 }: {
   word: string;
   title: string;
   body: string[];
-  img: string;
   index: number;
 }) {
+  const bg = DEMO_BG[(index + 7) % DEMO_BG.length];
   return (
     <div className="relative min-h-[90vh] flex items-end overflow-hidden border-b border-line pb-16 md:pb-24">
-      <div className="absolute inset-0">
-        <Image src={img} alt={title} fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-espresso/70" />
-      </div>
+      {/* Fondo de color */}
+      <div className="absolute inset-0" style={{ backgroundColor: bg }} />
+      <div className="absolute inset-0 bg-espresso/55" />
 
       <span
         aria-hidden
@@ -472,4 +479,3 @@ export function Subscribe() {
     </section>
   );
 }
-
