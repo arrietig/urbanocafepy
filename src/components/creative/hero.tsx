@@ -1,11 +1,33 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
-const SLIDE_COUNT = 5;
-const SLIDE_BG = ['#3a4237', '#2e3229', '#3f4a3b', '#3d4336', '#484e40'];
-const INTERVAL  = 5000;
+const SLIDES = [
+  {
+    src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&h=1080&q=85&auto=format&fit=crop',
+    alt: 'Interior de cafetería',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1920&h=1080&q=85&auto=format&fit=crop',
+    alt: 'Latte art',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1920&h=1080&q=85&auto=format&fit=crop',
+    alt: 'Café en preparación',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1920&h=1080&q=85&auto=format&fit=crop',
+    alt: 'Barista trabajando',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1920&h=1080&q=85&auto=format&fit=crop',
+    alt: 'Tazas de café',
+  },
+];
+
+const INTERVAL = 5000;
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -18,7 +40,7 @@ export function Hero() {
   const fade    = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   useEffect(() => {
-    const id = setInterval(() => setActive(i => (i + 1) % SLIDE_COUNT), INTERVAL);
+    const id = setInterval(() => setActive(i => (i + 1) % SLIDES.length), INTERVAL);
     return () => clearInterval(id);
   }, []);
 
@@ -28,7 +50,7 @@ export function Hero() {
       className="relative min-h-[100svh] -mt-[78px] pt-[78px] overflow-hidden"
       aria-label="Hero principal"
     >
-      {/* ── Fondos del carrusel ── */}
+      {/* ── Carrusel de fondo ── */}
       <motion.div style={{ scale: bgScale, y: bgY }} className="absolute inset-0">
         <AnimatePresence mode="sync">
           <motion.div
@@ -37,22 +59,20 @@ export function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-4 select-none"
-            style={{ backgroundColor: SLIDE_BG[active] }}
+            className="absolute inset-0"
           >
-            <span
-              className="font-display text-[clamp(6rem,28vw,24rem)] leading-none tabular-nums"
-              style={{ WebkitTextStroke: '2px rgba(224,211,166,0.12)', color: 'transparent' }}
-            >
-              {String(active + 1).padStart(2, '0')}
-            </span>
-            <span className="text-[10px] tracking-[0.4em] uppercase text-cream/20">
-              Imagen de portada
-            </span>
+            <Image
+              src={SLIDES[active].src}
+              alt={SLIDES[active].alt}
+              fill
+              priority={active === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-espresso/60 via-espresso/30 to-espresso" />
-        <div className="absolute inset-0 bg-gradient-to-r from-espresso/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/40 to-espresso" />
+        <div className="absolute inset-0 bg-gradient-to-r from-espresso/60 to-transparent" />
       </motion.div>
 
       {/* ── Contenido central ── */}
@@ -84,7 +104,7 @@ export function Hero() {
           una o dos líneas.
         </motion.p>
 
-        {/* CTA placeholder */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,10 +123,10 @@ export function Hero() {
         className="absolute bottom-6 left-5 md:left-12 z-10 flex items-center gap-4"
       >
         <span className="text-[10px] tracking-[0.32em] uppercase text-cream-soft tabular-nums">
-          {String(active + 1).padStart(2, '0')} / {String(SLIDE_COUNT).padStart(2, '0')}
+          {String(active + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
         </span>
         <div className="flex gap-2">
-          {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
+          {SLIDES.map((_, i) => (
             <button key={i} onClick={() => setActive(i)} aria-label={`Slide ${i + 1}`} className="cursor-pointer">
               <span className={`block h-[2px] transition-all duration-500 rounded-full ${
                 i === active ? 'w-8 bg-copper' : 'w-3 bg-cream/30 hover:bg-cream/60'
