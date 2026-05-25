@@ -28,8 +28,9 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "Demo — Tu marca aquí",
-  description: "Demo de landing page. Reemplazá este texto con la descripción real de tu empresa.",
+  title: "Urbano Café — Café de especialidad en Paraguay",
+  description:
+    "Urbano Café tuesta granos de origen único en Asunción. Café de especialidad, suscripciones, métodos y nuestras cafeterías.",
 };
 
 export default function RootLayout({

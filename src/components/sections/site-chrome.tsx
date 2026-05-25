@@ -1,23 +1,29 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+
+const PROMO_ITEMS = [
+  'Envío gratis sobre Gs. 250.000',
+  'Tostado cada semana en Asunción',
+  'Cosecha 2026 · Brasil Cerrado',
+  'Suscribite y ahorrá 15%',
+];
 
 export function PromoBar() {
   return (
     <div className="bg-copper text-espresso py-[9px] px-5 md:px-12 border-b border-copper-deep text-center text-[11px] tracking-[0.22em] uppercase font-semibold">
-      Mensaje promocional · Tu promo aquí
-      <span aria-hidden className="mx-3 opacity-50">✦</span>
-      Otro mensaje corto de valor
+      {PROMO_ITEMS[2]} <span aria-hidden className="mx-3 opacity-50">✦</span> {PROMO_ITEMS[3]}
     </div>
   );
 }
 
 const NAV = [
-  ['Sección 01', '#seccion-01'],
-  ['Sección 02', '#seccion-02'],
-  ['Sección 03', '#seccion-03'],
-  ['Sección 04', '#seccion-04'],
+  ['Café', '#cafe'],
+  ['Catering', '#catering'],
+  ['Socios', '#ritual'],
+  ['Locales', '#origenes'],
 ] as const;
 
 export function SiteHeader() {
@@ -45,8 +51,6 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto max-w-[1500px] grid grid-cols-[1fr_auto_1fr] items-center gap-6 px-5 md:px-12 py-4">
-
-          {/* Links izquierda */}
           <nav className="justify-self-end hidden md:block">
             <ul className="flex gap-8">
               {NAV.slice(0, 2).map(([label, href]) => (
@@ -62,7 +66,6 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          {/* Hamburger mobile */}
           <button
             className="md:hidden justify-self-start flex flex-col gap-[6px] w-10 h-10 items-center justify-center cursor-pointer"
             onClick={() => setOpen((v) => !v)}
@@ -74,14 +77,21 @@ export function SiteHeader() {
             <span className={`block h-[2px] w-6 bg-cream transition-transform duration-300 ${open ? '-translate-y-2 -rotate-45' : ''}`} />
           </button>
 
-          {/* LOGO */}
-          <a href="#top" className="justify-self-center flex items-center cursor-pointer" aria-label="Tu marca — inicio">
-            <div className="h-9 md:h-11 w-28 md:w-36 border border-dashed border-cream/40 rounded-lg flex items-center justify-center">
-              <span className="text-cream text-[10px] tracking-[0.35em] uppercase font-bold select-none">LOGO</span>
-            </div>
+          <a
+            href="#top"
+            className="justify-self-center flex items-center cursor-pointer"
+            aria-label="Urbano Café — inicio"
+          >
+            <Image
+              src="/logo/urbano-bici.png"
+              alt="Urbano Café"
+              width={1064}
+              height={583}
+              priority
+              className="h-9 md:h-11 w-auto"
+            />
           </a>
 
-          {/* Links derecha */}
           <nav className="justify-self-start hidden md:block">
             <ul className="flex gap-8">
               {NAV.slice(2).map(([label, href]) => (
@@ -101,7 +111,6 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -112,7 +121,7 @@ export function SiteHeader() {
             className="fixed inset-0 z-40 bg-espresso md:hidden flex flex-col justify-center px-8"
           >
             <ul className="flex flex-col gap-2">
-              {[...NAV, ['Más', '#mas'] as const].map(([label, href], i) => (
+              {[...NAV, ['Historia', '#manifiesto'] as const].map(([label, href], i) => (
                 <motion.li
                   key={href}
                   initial={{ opacity: 0, x: -30 }}
@@ -143,21 +152,23 @@ export function SiteFooter() {
         aria-hidden
         className="pointer-events-none select-none absolute -bottom-[6vw] left-0 right-0 text-center font-display text-[26vw] leading-none tracking-[0.02em] text-stroke opacity-[0.06]"
       >
-        MARCA
+        URBANO
       </div>
 
       <div className="mx-auto max-w-[1500px] relative">
         <div className="grid gap-12 md:gap-14 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
-
           <div>
-            {/* Logo placeholder */}
-            <div className="w-[clamp(160px,22vw,240px)] h-20 border border-dashed border-cream/40 rounded-xl flex items-center justify-center select-none">
-              <span className="text-cream text-[13px] tracking-[0.35em] uppercase font-bold">LOGO</span>
-            </div>
+            <Image
+              src="/logo/urbano-principal.png"
+              alt="Urbano Café"
+              width={938}
+              height={949}
+              className="w-[clamp(160px,22vw,240px)] h-auto"
+            />
             <div className="flex gap-4 text-[13px] mt-7 uppercase tracking-[0.12em]">
               {[
-                ['Red Social 01', '#'],
-                ['Red Social 02', '#'],
+                ['Instagram', 'https://www.instagram.com/urbanocafepy/'],
+                ['WhatsApp', '#'],
               ].map(([l, h]) => (
                 <a
                   key={l}
@@ -173,13 +184,16 @@ export function SiteFooter() {
           <nav>
             <ul className="flex flex-col gap-3">
               {[
-                ['Enlace de sección 01', '#seccion-01'],
-                ['Enlace de sección 02', '#seccion-02'],
-                ['Enlace de sección 03', '#seccion-03'],
-                ['Enlace de sección 04', '#seccion-04'],
+                ['Nuestras Delicias', '#cafe'],
+                ['Servicio de Catering', '#catering'],
+                ['Socios Comerciales', '#ritual'],
+                ['Sucursales', '#origenes'],
               ].map(([l, h]) => (
                 <li key={l}>
-                  <a href={h} className="text-[15px] text-cream-soft hover:text-cream transition-colors cursor-pointer">
+                  <a
+                    href={h}
+                    className="text-[15px] text-cream-soft hover:text-cream transition-colors cursor-pointer"
+                  >
                     {l}
                   </a>
                 </li>
@@ -189,7 +203,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 pt-6 border-t border-line flex flex-col md:flex-row justify-between gap-2 text-[12px] text-muted uppercase tracking-[0.12em]">
-          <span>Tu Empresa · Todos los derechos reservados · 2025</span>
+          <span>Todos los Derechos reservados · 2021 · Asunción, Paraguay</span>
           <span>
             Desarrollado por{' '}
             <a

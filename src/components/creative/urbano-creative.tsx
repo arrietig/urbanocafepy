@@ -4,13 +4,12 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/* ─────────────────────────────────── Sección 03 · Socios / Partners */
+/* -------------------------------------------------- Socios Comerciales */
 
 export function Ritual() {
   return (
-    <section id="seccion-03" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
+    <section id="ritual" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
       <div className="mx-auto max-w-[1500px]">
-
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,33 +17,43 @@ export function Ritual() {
           transition={{ duration: 0.6 }}
           className="text-[11px] tracking-[0.4em] uppercase text-copper mb-12 md:mb-20"
         >
-          Alianzas y socios
+          Socios Comerciales
         </motion.p>
 
-        {/* Socio 01 */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
-              Socio 01
+              Café Quinto
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
-              <p>Descripción del socio o partner. Contá brevemente la relación, qué aporta y cómo beneficia a tus clientes.</p>
-              <p>Segunda línea de descripción. Podés ampliar un poco más el detalle de la alianza.</p>
-              <p className="text-cream">Frase de cierre o call to action.</p>
+              <p>
+                Un café creado junto a Café Quinto, desde la finca hasta la
+                taza. En Chemex se expresa con elegancia y suavidad: frutas
+                amarillas, almendras suaves y un final floral, limpio.
+              </p>
+              <p>
+                El método realza cada ingrediente y transforma el café en un
+                ritual de pausa y satisfacción.
+              </p>
+              <p className="text-cream">Viví Origen, disfrútalo en Urbano.</p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 1.04 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=1000&q=80&auto=format&fit=crop"
-              alt="Socio 01"
+              src="/socios/cafe-quinto.jpg"
+              alt="Café Quinto"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -53,60 +62,76 @@ export function Ritual() {
           </motion.div>
         </div>
 
-        {/* Socio 02 */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
           <motion.div
-            initial={{ opacity: 0, scale: 1.04 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden md:order-1 order-2"
           >
-            <Image
-              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&h=1000&q=80&auto=format&fit=crop"
-              alt="Socio 02"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+            <video
+              src="/socios/totem.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="md:order-2 order-1"
           >
             <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
-              Socio 02
+              Totem Tostadores
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
-              <p>Descripción del segundo socio. Si tienen un video de presentación, irá en el bloque de la izquierda.</p>
-              <p className="text-cream">Completá con los detalles más relevantes de esta alianza.</p>
+              <p>
+                Nuestro House Blend es tostado todos los días por nuestros
+                amigos de Totem Tostadores para ofrecerte café fresco en
+                nuestros locales y también para que nos lleves adonde quieras.
+              </p>
+              <p className="text-cream">Disfrutá, en Urbano Café.</p>
             </div>
           </motion.div>
         </div>
 
-        {/* Socio 03 */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mt-20 md:mt-32">
           <motion.div
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <h3 className="font-anton text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.02] text-cream">
-              Socio 03
+              Antillas Café
             </h3>
             <div className="mt-7 space-y-5 text-cream-soft max-w-[46ch] leading-relaxed text-[16px]">
-              <p>Tercer socio o alianza estratégica. Describí en pocas palabras qué hacen y por qué son importantes para tu marca.</p>
+              <p>
+                Antillas es la tostaduría que representa el sabor del café
+                boliviano con sus packs de Mañana tropical, Tarde dulce y
+                Noche intensa para Espresso, y el delicioso pacamara: Siesta
+                sagrada.
+              </p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 1.04 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=1000&q=80&auto=format&fit=crop"
-              alt="Socio 03"
+              src="/socios/antillas.jpg"
+              alt="Antillas Café"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -114,45 +139,45 @@ export function Ritual() {
             <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
           </motion.div>
         </div>
-
       </div>
     </section>
   );
 }
 
-/* ──────────────────────────────── Sección 01 · Productos / Menú */
+/* --------------------------------------------------- Carta — paneles slide */
 
 const CATEGORIES = [
-  { name: 'Categoría 01', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 02', img: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 03', img: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 04', img: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 05', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 06', img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 07', img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 08', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 09', img: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&h=1000&q=80&auto=format&fit=crop' },
-  { name: 'Categoría 10', img: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=800&h=1000&q=80&auto=format&fit=crop' },
+  { name: 'Café Calientes',       img: '/galeria/cafe-calientes.jpg' },
+  { name: 'Café Fríos',           img: '/galeria/cafe-frios.jpg' },
+  { name: 'Tés Gourmet',          img: '/galeria/tes-gourmet.jpg' },
+  { name: 'Brunch',               img: '/galeria/brunch.jpg' },
+  { name: 'Clásicos Urbanos',     img: '/galeria/clasicos-urbanos.jpg' },
+  { name: 'Sándwiches',           img: '/galeria/sandwiches.jpg' },
+  { name: 'Croissant Dulces',     img: '/galeria/croissant-dulces.jpg' },
+  { name: 'Dulces',               img: '/galeria/dulces.jpg' },
+  { name: 'Bebidas',              img: '/galeria/bebidas.jpg' },
+  { name: 'Cervezas Artesanales', img: '/galeria/cervezas-artesanales.jpg' },
 ];
 
 export function Beans() {
   return (
-    <section id="seccion-01" className="bg-espresso py-20 md:py-32 overflow-hidden">
+    <section id="cafe" className="bg-espresso py-20 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1500px] w-full px-5 md:px-12 mb-10 md:mb-14">
         <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-4">
-          Tu eyebrow o subtítulo de sección
+          Café hecho con amor desde el 2021
         </p>
         <h2 className="font-display uppercase text-[clamp(2rem,7vw,5.5rem)] leading-[0.85] text-cream">
-          Título de <span className="text-stroke">sección</span>
+          Nuestras <span className="text-stroke">delicias</span>
         </h2>
       </div>
 
-      <div className="flex gap-3 md:gap-4 px-5 md:px-12 overflow-x-auto snap-x snap-mandatory
-        [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <div
+        className="flex gap-3 md:gap-4 px-5 md:px-12 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      >
         {CATEGORIES.map((c) => (
           <article
             key={c.name}
-            className="group relative snap-start shrink-0 w-[78vw] sm:w-[44vw] lg:w-[30vw] h-[70vh] max-h-[680px] overflow-hidden rounded-2xl cursor-pointer"
+            className="group relative snap-start shrink-0 w-[78vw] sm:w-[44vw] lg:w-[30vw] h-[70vh] max-h-[680px] overflow-hidden rounded-2xl bg-roast cursor-pointer"
           >
             <Image
               src={c.img}
@@ -177,149 +202,183 @@ export function Beans() {
   );
 }
 
-/* ──────────────────────────────── Sección 02 · Servicio destacado */
+/* ------------------------------------------------ Servicios de Catering */
 
 const CATERING_IMGS = [
-  'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=1000&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=1000&q=80&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=1000&q=80&auto=format&fit=crop',
+  '/catering/catering-01.jpg',
+  '/catering/catering-02.jpg',
+  '/catering/catering-03.jpg',
 ];
 
 export function Catering() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setActive(i => (i + 1) % CATERING_IMGS.length), 4500);
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % CATERING_IMGS.length),
+      4500,
+    );
     return () => clearInterval(id);
   }, []);
 
   return (
-    <section id="seccion-02" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
+    <section id="catering" className="bg-espresso py-20 md:py-32 px-5 md:px-12">
       <div className="mx-auto max-w-[1500px] grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
-            Tu servicio o categoría especial
+            Servicios de Catering
           </p>
           <h2 className="font-display uppercase text-[clamp(2.4rem,8vw,7rem)] leading-[0.85] text-cream">
             <span className="line-through decoration-copper decoration-[0.08em] text-cream/60">
-              Servicio
+              Catering
             </span>
             <br />
             <span className="font-alexandria font-normal normal-case text-gold text-[clamp(1.8rem,5vw,4rem)]">
-              Tu propuesta de valor aquí
+              Experiencia en cada evento
             </span>
           </h2>
-          <p className="mt-8 text-cream-soft max-w-[42ch] leading-relaxed text-[16px]">
-            Describí este servicio o producto en dos o tres líneas. Resaltá lo que lo hace especial y por qué tu cliente debería elegirlo.
-          </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 1.04 }} whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden ring-1 ring-inset ring-cream/10"
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden"
         >
           <AnimatePresence mode="sync">
             <motion.div
               key={active}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 1.1, ease: 'easeInOut' }}
               className="absolute inset-0"
             >
               <Image
                 src={CATERING_IMGS[active]}
-                alt={`Servicio ${active + 1}`}
+                alt={`Catering Urbano Café ${active + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
           </AnimatePresence>
+          <div className="absolute inset-0 ring-1 ring-inset ring-cream/10 rounded-2xl" />
 
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
             {CATERING_IMGS.map((_, i) => (
-              <button key={i} onClick={() => setActive(i)} aria-label={`Foto ${i + 1}`} className="cursor-pointer">
-                <span className={`block h-[3px] rounded-full transition-all duration-500 ${
-                  i === active ? 'w-8 bg-copper' : 'w-3 bg-cream/40 hover:bg-cream/70'
-                }`} />
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Foto ${i + 1}`}
+                className="cursor-pointer"
+              >
+                <span
+                  className={`block h-[3px] rounded-full transition-all duration-500 ${
+                    i === active ? 'w-8 bg-copper' : 'w-3 bg-cream/40 hover:bg-cream/70'
+                  }`}
+                />
               </button>
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
 }
 
-/* ──────────────────────────────── Sección 04 · Locales / Sucursales */
+/* -------------------------------------------------------------- Origins */
 
-const LOCATIONS = [
+const ORIGINS = [
   {
-    word:  'Local',
-    title: 'Local 01',
-    body:  ['Dirección o nombre del local', 'Horario de atención', 'Días disponibles'],
-    img:   'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1800&h=1200&q=80&auto=format&fit=crop',
+    word: 'Mariscal',
+    title: 'Mercado Mariscal',
+    body: [
+      'Lunes a Viernes 8 a 21 hs.',
+      'Sábados 9 a 21 hs.',
+      'Domingos 10 a 21 hs.',
+    ],
+    img: 'https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1800&auto=format&fit=crop',
   },
   {
-    word:  'Local',
-    title: 'Local 02',
-    body:  ['Dirección o nombre del local', 'Horario de atención'],
-    img:   'https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1800&h=1200&q=80&auto=format&fit=crop',
+    word: 'Del Sol',
+    title: 'Del Sol',
+    body: [
+      'Lunes a Viernes 8 a 21 hs.',
+      'Sábados y Domingos 9 a 21 hs.',
+    ],
+    img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1800&auto=format&fit=crop',
   },
   {
-    word:  'Local',
-    title: 'Local 03',
-    body:  ['Dirección o nombre del local', 'Horario de atención'],
-    img:   'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=1800&h=1200&q=80&auto=format&fit=crop',
+    word: 'Distrito',
+    title: 'Distrito Perseverancia',
+    body: ['Lunes a Domingos 9 a 21 hs.'],
+    img: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1800&auto=format&fit=crop',
   },
 ];
 
 export function Origins() {
   return (
-    <section id="seccion-04" className="bg-espresso-soft">
-      {LOCATIONS.map((loc, i) => (
-        <LocationPanel key={i} {...loc} index={i} />
+    <section id="origenes" className="bg-espresso-soft">
+      {ORIGINS.map((o, i) => (
+        <OriginPanel key={o.word} {...o} index={i} />
       ))}
     </section>
   );
 }
 
-function LocationPanel({
-  word, title, body, img, index,
+function OriginPanel({
+  word,
+  title,
+  body,
+  img,
+  index,
 }: {
-  word: string; title: string; body: string[]; img: string; index: number;
+  word: string;
+  title: string;
+  body: string[];
+  img: string;
+  index: number;
 }) {
   return (
     <div className="relative min-h-[90vh] flex items-end overflow-hidden border-b border-line pb-16 md:pb-24">
       <div className="absolute inset-0">
         <Image src={img} alt={title} fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-espresso/65" />
+        <div className="absolute inset-0 bg-espresso/70" />
       </div>
 
       <span
         aria-hidden
-        style={{ WebkitTextStroke: '1.5px #E0D3A6', color: 'transparent' }}
+        style={{
+          WebkitTextStroke: '1.5px #E0D3A6',
+          color: 'transparent',
+        }}
         className="pointer-events-none absolute inset-x-0 top-[42%] -translate-y-1/2 px-4 text-center font-display uppercase text-[clamp(2.25rem,13vw,15rem)] leading-none opacity-[0.45] whitespace-nowrap select-none"
       >
-        {word} {String(index + 1).padStart(2, '0')}
+        {word}
       </span>
 
       <div className="relative mx-auto max-w-[1500px] w-full px-5 md:px-12">
         <div className={`max-w-[34rem] ${index % 2 === 0 ? '' : 'md:ml-auto'}`}>
           <motion.div
-            initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.65 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.65 }}
           >
             <h2 className="font-anton text-[clamp(2.4rem,6vw,5rem)] leading-[1.02] text-cream">
               {title}
             </h2>
             <div className="text-cream-soft mt-6 leading-relaxed text-[17px] space-y-1">
-              {body.map((line) => <p key={line}>{line}</p>)}
+              {body.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -328,15 +387,15 @@ function LocationPanel({
   );
 }
 
-/* ──────────────────────────────────────────── Manifiesto / Historia */
+/* ------------------------------------------------------------ Manifesto */
 
 const MANIFESTO_LINES = [
-  'Acá va el mensaje central de tu marca.',
-  'Lo que te hace diferente, lo que creés',
-  'y por qué hacés lo que hacés.',
-  'Tres o cuatro líneas poderosas',
-  'que resuman tu identidad',
-  'y conecten con tu cliente.',
+  'Creemos que el café no es un trámite.',
+  'Es un instante, una decisión diaria',
+  'de hacer las cosas con cuidado.',
+  'Por eso tostamos lento,',
+  'compramos directo',
+  'y servimos fresco.',
 ];
 
 export function Manifesto() {
@@ -365,41 +424,45 @@ export function Manifesto() {
   );
 }
 
-/* ──────────────────────────────────────────────────── Contacto / CTA */
+/* ----------------------------------------------------------- WhatsApp contact */
 
 export function Subscribe() {
   return (
-    <section id="contacto" className="bg-espresso-soft px-5 md:px-12 py-20 md:py-32 border-t border-line">
+    <section id="suscripcion" className="bg-espresso-soft px-5 md:px-12 py-20 md:py-32 border-t border-line">
       <motion.div
-        initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="mx-auto max-w-[760px] text-center"
       >
         <p className="text-[11px] tracking-[0.4em] uppercase text-copper mb-6">
-          Sección de contacto o CTA
+          Pedidos y consultas
         </p>
         <h2 className="font-anton uppercase text-[clamp(2.6rem,9vw,7rem)] leading-[0.84] text-cream">
           Contáctanos
         </h2>
         <p className="text-cream-soft mt-8 max-w-[44ch] mx-auto text-[16px] leading-relaxed">
-          Breve descripción del CTA. Invitá a tu cliente a escribirte, reservar o consultar lo que necesite.
+          Para lo que sea, consultas de reservas, dejar una recomendación o
+          saludarnos.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           {[
-            { label: 'Botón de acción 01', href: '#' },
-            { label: 'Botón de acción 02', href: '#' },
-          ].map(({ label, href }) => (
+            { local: 'Mariscal', tel: '595971366399' },
+            { local: 'Del Sol', tel: '595972811800' },
+          ].map(({ local, tel }) => (
             <a
-              key={label}
-              href={href}
+              key={tel}
+              href={`https://wa.me/${tel}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#3D4336] text-[#E0D3A6] border border-line pl-7 pr-3 py-4 text-[13px] tracking-[0.16em] uppercase font-bold hover:bg-[#454c3c] transition-colors cursor-pointer"
             >
-              {label}
+              WhatsApp · {local}
               <span className="grid place-items-center w-9 h-9 rounded-full bg-[#E0D3A6] text-[#3D4336] transition-transform duration-300 group-hover:rotate-12">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
               </span>
             </a>
@@ -409,3 +472,4 @@ export function Subscribe() {
     </section>
   );
 }
+
